@@ -1,0 +1,866 @@
+AWSTATS DATA FILE 7.7 (build 20161204)
+# If you remove this file, all statistics for date 202312 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.stylenhomes.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 1998                
+POS_TIME 2685                
+POS_VISITOR 18882               
+POS_DAY 28618               
+POS_DOMAIN 3546                
+POS_LOGIN 4167                
+POS_ROBOT 4322                
+POS_WORMS 5146                
+POS_EMAILSENDER 5277                
+POS_EMAILRECEIVER 5420                
+POS_SESSION 29437               
+POS_SIDER 29638               
+POS_FILETYPES 5555                
+POS_DOWNLOADS 5794                
+POS_OS 5842                
+POS_BROWSER 6047                
+POS_SCREENSIZE 7426                
+POS_UNKNOWNREFERER 7500                
+POS_UNKNOWNREFERERBROWSER 8068                
+POS_ORIGIN 8472                
+POS_SEREFERRALS 8612                
+POS_PAGEREFS 8817                
+POS_SEARCHWORDS 9062                
+POS_KEYWORDS 9214                
+POS_MISC 2349                
+POS_ERRORS 9273                
+POS_CLUSTER 4023                
+POS_SIDER_404 9389                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20240101011531 2923 825692 19485735811727
+FirstTime 20231201031142
+LastTime 20231231203323
+LastUpdate 20240101043907 2923 2890 31 1 0
+TotalVisits 295                 
+TotalUnique 244                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 245                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 0 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 12 14 2894487 46 64 876798
+1 13 48 5903480 31 53 1904639
+2 16 16 62082 40 65 2247802
+3 29 33 1081131 42 62 2048622
+4 18 26 21920866 31 51 1813667
+5 14 48 7515387 31 53 4396409
+6 21 58 9054600 30 43 1172649
+7 36 112 10580032 42 60 3651420
+8 13 32 668786 55 118 11065965
+9 25 68 43630585 35 73 1700023
+10 17 26 5669281 43 109 7447297
+11 9 13 5508693 39 61 2945038
+12 20 103 10187370 28 41 1141513
+13 26 71 5458095 35 82 1689424
+14 16 46 5089187 50 117 8028028
+15 47 175 19657200 39 70 2431325
+16 18 20 297807 55 113 1798546
+17 30 144 19743232 65 84 1850759
+18 21 24 460158 47 71 1254999
+19 32 35 827628 52 78 1391063
+20 29 57 4635377 29 72 2106253
+21 15 15 227437 30 79 3516226
+22 11 11 146723 22 45 816788
+23 9 9 94791 33 73 2105672
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 28
+us 191 374 101505122
+in 77 491 58006418
+cn 75 75 1111750
+gb 34 63 5848307
+de 21 21 277491
+pl 17 29 2364831
+fr 15 15 264269
+ca 12 40 5806746
+se 8 13 101196
+hk 7 7 90650
+bd 1 1 10631
+np 3 3 31893
+jp 1 1 10631
+no 1 1 13343
+kr 1 1 13343
+pa 1 1 10631
+la 3 3 31893
+ro 1 1 10631
+unknown 4 40 5526791
+sg 4 4 53372
+id 1 1 10631
+kh 3 3 31893
+th 1 1 10631
+br 5 5 53155
+za 1 1 3503
+nl 7 7 93401
+gq 1 1 10631
+ge 1 1 10631
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 18
+Googlebot/ 290 8800749 20231231123443 40
+bingbot/ 218 22421397 20231231014602 39
+dataprovider\.com 95 12079293 20231216141545 2
+YandexBot/ 89 162426 20231231224853 77
+AhrefsBot/ 60 1142459 20231230204921 20
+Googlebot\-Image/ 50 5686935 20231227174615 0
+BLEXBot/ 37 208771 20231212214825 9
+seek 32 747111 20231214174209 3
+no_user_agent 26 1209858 20231231145120 0
+oBot/ 19 110832 20231208222958 5
+unknown 19 650 20231230081524 19
+curl 1 0 20231212170716 0
+SemrushBot/ 3 4824 20231226014153 2
+python 3 13404 20231224154209 1
+bot[\s_+:,\.\;\/\\-] 16 14048 20231227194657 15
+^mozilla\/5\.0$ 1 13343 20231201112450 0
+facebookexternalhit/ 1 46533 20231210131724 0
+crawl 14 114688 20231214163958 1
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 9
+css 84 932520 0 0
+png 131 41645217 0 0
+json 24 36900 0 0
+otf 46 1485307 0 0
+html 427 5905198 0 0
+jpg 44 977970 0 0
+js 58 94086252 0 0
+jpeg 256 35930586 0 0
+svg 134 314465 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 10
+linuxandroid 45 8
+winlong 9 9
+ios_iphone 183 95
+macosx12 1 1
+linux 153 123
+win7 12 12
+macosx 272 73
+win8.1 4 4
+win10 486 155
+Unknown 39 17
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 66
+firefox57.0 5 5
+firefox56.4 1 1
+chrome95.0.4638.69 4 4
+firefox117.0 1 1
+chrome112.0.0.0 8 4
+safari15.4 2 2
+firefox114.0 8 8
+opera89.0.4447.51 1 1
+safari16.5 41 5
+lynx 1 1
+chrome100.0.4896.127 3 3
+chrome83.0.4103.97 10 10
+chrome103.0.5060.53 3 3
+chrome89.0.4389.114 2 2
+msie7.0 2 2
+chrome91.0.4472.114 36 15
+opera52.0.2871.40 1 1
+chrome66.0.3359.181 2 2
+chrome108.0.0.0 43 43
+chrome90.0.4430.85 1 1
+chrome62.0.3187.0 1 1
+chrome88.0.4324.150 1 1
+chrome80.0.3987.162 2 2
+chrome117.0.5938.132 32 4
+edge44 6 6
+chrome68.0.3440.106 3 3
+firefox45.0 1 1
+firefox115.0 3 3
+mozilla 28 10
+safari17.1.1 56 9
+firefox118.0 3 3
+safari15.5 1 1
+chrome116.0.0.0 37 11
+safari 42 5
+chrome118.0.5993.88 39 4
+chrome87.0.4280.88 6 6
+chrome71.0.3578.98 1 1
+chrome104.0.5112.79 24 12
+firefox95.0 1 1
+chrome87.0.4280.141 1 1
+safari16.6 1 1
+chrome34.0.1847.116 7 7
+chrome119.0.0.0 349 45
+chrome74.0.3729.169 6 6
+safari13.0.3 77 77
+chrome106.0.0.0 1 1
+chrome114.0.0.0 23 23
+Unknown 11 7
+chrome94.0.4606.81 81 51
+safari17.0 5 1
+chrome111.0.0.0 1 1
+firefox119.0 1 1
+chrome118.0.0.0 34 34
+safari10.0 1 1
+chrome95.0.4638.54 2 2
+chrome113.0.0.0 2 2
+chrome109.0.0.0 1 1
+msie11.0 1 1
+chrome67.0.3396.99 1 1
+chrome67.0.3310.18 1 1
+chrome117.0.0.0 8 8
+chrome105.0.0.0 13 8
+chrome89.0.4389.90 1 1
+chrome76.0.3809.111 1 1
+chrome120.0.0.0 109 13
+chrome75.0.3770.100 3 3
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 9
+Scrapy/2.11.0_(_https://scrapy.org) 20231218113606
+Iframely/1.3.1_(_https://iframely.com/docs/about)_Canva 20231205205035
+Roku/DVP-4.1_(024.01E01250A) 20231222214051
+Lynx/2.9.0dev.5_libwww-FM/2.14_SSL-MM/1.4.1_GNUTLS/3.6.13 20231214033944
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20231221134826
+WhatsApp/2.2347.1_W 20231204073642
+WhatsApp/2.23.20.0 20231215121138
+Iframely/1.3.1_(_https://iframely.com/docs/about) 20231205205035
+Chrome 20231229012530
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 7
+Scrapy/2.11.0_(_https://scrapy.org) 20231218113606
+Iframely/1.3.1_(_https://iframely.com/docs/about)_Canva 20231205205035
+Roku/DVP-4.1_(024.01E01250A) 20231222214051
+WhatsApp/2.2347.1_W 20231204073642
+Iframely/1.3.1_(_https://iframely.com/docs/about) 20231205205035
+WhatsApp/2.23.20.0 20231215121138
+Chrome 20231229012530
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 381 410
+From1 0 0
+From2 10 10
+From3 3 3
+From4 103 781
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 4
+www_google_de 1 1
+bing 1 1
+google_com 2 2
+www_google_com 6 6
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 3
+https://zvki.lighthearteds.shop 1 1
+https://mgilgi.smzt.shop 1 1
+https://zzsdb.wptraffic.xyz 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 3
+206 8 689984
+400 1 650
+404 722 15932970
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 196
+/public/user/js/jquery.calendar.js 1 -
+/gallery-2-cols/ 1 -
+/wordpress/ 1 -
+/product-detail/china-kitchen-cabinet-factory-display-kitchen-cabinets-for-sale 1 -
+/images/Team-3_1Team-3.webp 21 -
+/public/index.php/product-detail/new-chinese-style-laundry-cabinet-with-stainless-steel-cabinet 1 -
+//www.gstatic.com/firebasejs/8.6.8/firebase-database.js 18 -
+/home-menu-bottom-light/ 1 -
+/product/woo-logo-2/ 1 -
+/about-us 3 -
+/contact/ 17 -
+/4-cols-inverted/ 2 -
+/product-detail/wholesale-china-apartment-small-space-iron-railing-spiral-stairs-wood-stairs-case 1 -
+/public/user/js/jquery.exzoom.js 1 -
+/public/index.php/product-detail/custom-metal-kitchen-cabinet-from-china-kitchen-cabinet-factory 1 -
+/compare 1 -
+/public/index.php/product-detail/snh-9903 1 -
+/public/index.php/product 28 -
+/blog 1 -
+/projects-2-cols/ 1 -
+/landing-parallax/ 2 -
+/portfolio/youtube-video/ 1 -
+/product-detail/stainless-steel-wall-mount-round-square-adjustable-glass-standoff-balustrade 1 -
+/portfolio/summer-house/ 1 -
+/home-moving-background/ 3 -
+/login.html 2 -
+/brand 1 -
+/our-services/ 1 -
+/service/office-design/ 4 -
+/product-detail/custom-classic-wooden-kitchen-cabinetry-luxury-island-sets-european-american-style-solid-wood-kitchen-cabinet-design 1 -
+/public/user/js/venobox.min.js 1 -
+/home-minimal/ 1 -
+/wp-json/wp/v2/posts 1 -
+/public/toastr/toastr.min.js 1 -
+/images/Team-5_1Team-5.webp 16 -
+/product-detail/new-chinese-style-laundry-cabinet-with-stainless-steel-cabinet 1 -
+/home-youtube-video/ 3 -
+/public/index.php/product-detail/snh-9905 1 -
+/product-category/cabinet/ 1 -
+/product-detail/15-years-factory-prefabricated-steel-structure-spiral-staircase 1 -
+/wp-content/plugins/backup-backup/admin/js/backup-migration.min.js 1 -
+/service/hospitaly-design/ 5 -
+/categories/hospitaly/ 1 -
+/public/user/js/Font-Awesome.js 1 -
+/product-detail/supply-odm-china-prefab-steel-wood-spiral-staircase-arc-stairs 1 -
+/process/ 1 -
+/privacy-policy 3 -
+/product-detail/snh-9906 1 -
+/product-detail/modern-white-lacquer-flat-pack-kitchen-cabinet-for-sale 1 -
+/projects-4-cols/ 1 -
+/product-detail/china-wholesale-china-rod-balustrade-stainless-steel-balcony-rod-balustrade-railing 1 -
+/service/ 1 -
+/2-cols-inverted/ 1 -
+/our-projects/ 4 -
+/product/happy-ninja-2/ 1 -
+/product-detail/personalized-products-china-new-design-factory-price-beautiful-and-compact-rod-railing-spiral-staircase 1 -
+/product-detail/super-lowest-price-china-high-quality-laminated-glass-steps-floating-staircase-design 1 -
+/_ignition/share-report 1 -
+/apply-coupon 1 -
+/product-detail/original-factory-china-outdoor-swimming-pool-fence-frameless-glass-railing-with-spigot 1 -
+/public/user/js/simplyCountdown.js 1 -
+/process/build-install/ 1 -
+/product/ninja-silhouette-2/ 1 -
+/onepage-version/ 1 -
+/shop/ 1 -
+/my-account/ 2 -
+/public/user/js/isotope.pkgd.min.js 1 -
+/category/audio/ 1 -
+/product-detail/snh-9905 2 -
+/sitemaps.xml 2 -
+/product-category/misc/ 1 -
+/product-detail/tempered-glass-swimming-pool-fence-spigot-glass-railing 1 -
+/ads.txt 3 -
+//d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js 16 -
+/wp-json/oembed/1.0/embed 1 -
+/service/commercial-design/ 2 -
+/product-detail/ios-certificate-china-staircases-for-small-spaces-luxury-floating-stairs-steel-staircase 1 -
+/product-detail/professional-customized-small-furniture-stainless-steel-pulls-drawer-basket-kitchen-wall-cabinets-set-cheap-price 5 -
+/new-all-services/ 2 -
+/homepage.html 2 -
+/product-detail/factory-price-china-outdoor-balcony-tempered-clear-glass-balustrade 1 -
+/images/Sanjiv-Review-1_1Sanjiv-Review-1.png 34 https://stylenhomes.com/
+/animation_lmgtkn04.js 17 -
+/security.txt 2 -
+/public/index.php/product-detail/snh-9907 1 -
+/product-category/bed/ 2 -
+/forget-password 1 -
+/product-detail/modular-kitchen-cabinets-standard-modern-european-black-kitchens-cabinet-design 1 -
+/product-detail/custom-metal-kitchen-cabinet-from-china-kitchen-cabinet-factory 1 -
+/sitemap.xml.gz 1 -
+/legal.html 1 -
+/product-detail/snh-9910 1 -
+/categories/commercial/ 2 -
+/5-things-that-take-a-room-from-good-to-great/ 3 -
+/sitemap.xml 5 -
+/product-detail/snh-9908 1 -
+/tag/html5/ 2 -
+/template/careers.html 1 -
+/my-account/lost-password/ 1 -
+/portfolio/vimeo-video/ 1 -
+/public/index.php/product-detail/modern-white-lacquer-flat-pack-kitchen-cabinet-for-sale 2 -
+/product-detail/invisible-cantilever-glass-steel-wooden-step-floating-staircase 2 -
+/images/Career-Right_1Career-Right.webp 16 -
+/sitemap.txt 12 -
+/solarpanel/contact/ 1 -
+/projects-3-cols/ 1 -
+/feed/ 5 -
+/product-detail/china-manufacturer-for-china-stainless-steel-contemporary-glass-spigot-for-pool-fencing 1 -
+/dup-installer/main.installer.php 1 -
+/comments/feed/ 4 -
+/terms-and-conditions 4 -
+/pricing-tables/ 2 -
+/category/slider/ 2 -
+/product-detail/oem-manufacturer-china-well-designed-metal-spiral-staircase 1 -
+/home-video/ 1 -
+/.well-known/security.txt 4 -
+//www.gstatic.com/firebasejs/8.6.8/firebase-app.js 16 -
+/public/index.php/product-detail/stainless-steel-vanity-cabinets-from-china-custom-kitchen-cabinet-factory 1 -
+/sellers 1 -
+/product-detail/snh-9903 1 -
+/template/pricing.html 3 -
+/portfolio/restaurant-in-texas/ 1 -
+/public/index.php/about-us 1 -
+/public/index.php/contact-us 1 -
+/product-category/chair/ 2 -
+/public/index.php/product-detail/classic-style-pvc-kitchen-cabinet-model-no-pv01 1 -
+/public/index.php/product-detail/country-style-rosewood-kitchen-cabinet-design-red-oak-solid-wood-kitchen-cabinets-for-sale 1 -
+/wp-content/plugins/backup-backup/includes/readme.txt 1 -
+/gallery-4-cols/ 2 -
+//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js 18 -
+/product-detail/fast-delivery-china-commercial-metal-wood-floating-straight-stairs-with-glass-railing-design 1 -
+/category/image/ 1 -
+/product/woo-album-3/ 1 -
+/product-detail/modern-wardrobe-with-sliding-doors-no-wd02 1 -
+/page/onestop-project-solution 1 -
+/about/ 4 -
+/product-category/sofa/ 1 -
+/product-detail/foshan-factory-walnut-hardwood-kitchen-cabinets-design-custom-made-espresso-solid-wood-kitchen-cabinet 1 -
+/process/idea-concept/ 1 -
+/landing-video/ 1 -
+/humans.txt 2 -
+/public/user/js/jquery.classycountdown.js 1 -
+/listing 17 -
+/product-detail/factory-supplied-stainless-steel-swimming-pool-railing-304-316-2205-glass-clamp-railing-from-chinese-supplier 1 -
+/public/index.php/product-detail/snh-9902 1 -
+/functional-and-stylish-wall-to-wall-shelves/ 2 -
+/public/user/js/sticky_sidebar.js 1 -
+/page/why-work-with-us- 1 -
+/contact-us 4 -
+/projects/ 2 -
+/sitemap 7 -
+/public/index.php/user/dashboard 2 -
+/portfolio/luxury-living-room/ 1 -
+/blog/ 1 -
+/product-detail/snh-9902 1 -
+/tag/printf/ 1 -
+/product-detail/factory-making-china-supplier-oak-stairs-design-invisible-stringer-floating-stairs-staircase 1 -
+/product-detail/super-outdoor-1012mm-tempered-glass-swimming-pool-fencing-stainless-steel-frameless-glass-spigot-railing 1 -
+/the-5-secrets-to-pulling-off-simple-minimal-design/ 6 -
+/functional-and-stylish-wall-to-wall-shelves-2/ 1 -
+/webflow.js 19 -
+/product-category/desk/ 1 -
+/product-detail/module-white-color-wardobe-with-open-shelves-no-wd01 1 -
+/product-detail/factory-best-selling-china-modern-design-straight-glass-floating-staircase-with-laminated-glass-stairs-tread 1 -
+/product-detail/bottom-price-china-swimming-pool-glass-fence-clamp-railing-clamp-glass-spigot 1 -
+/product/patient-ninja/ 2 -
+/cart 1 -
+/portfolio/restaurant-in-cannes/ 1 -
+/product-detail/prefabricated-metal-wood-step-mono-stringer-staircase 1 -
+/product-detail/stainless-steel-vanity-cabinets-from-china-custom-kitchen-cabinet-factory 2 -
+/category/video/ 1 -
+/product-detail/factory-cheap-china-modern-wood-floating-staircase-cantilevered-stairs 1 -
+/public/index.php/product-detail/factory-price-classic-kitchen-cabinet-designs-white-antique-solid-wooden-kitchen-cabinet-for-sale 1 -
+/product 176 -
+/public/user/js/slick.min.js 1 -
+/product-detail/modern-oak-solid-wood-kitchen-cabinet-design-custom-dark-red-cherry-color-laminate-wooden-shaker-kitchen-cabinets 1 -
+/4-cols-carousel/ 1 -
+/public/user/js/jquery.nice-number.min.js 1 -
+/public/user/js/select2.min.js 1 -
+/public/index.php/product-detail/modern-l-shaped-kitchen-cabinet-design-philippines-kitchen-cabinet-full-set 1 -
+/uploads/website-images/favicon-2023-01-18-08-33-31-4862.png 5 -
+/public/product-detail/chinese-wholesale-china-hot-sale-304316-stainless-steel-spigot-glass-balustrade-for-balconydeck-from-foshan 1 -
+/sitemap_index.xml 6 -
+/home-profession-light/ 1 -
+/product-detail/metal-antirust-steel-spiral-staircase-for-small-space 1 -
+/product-detail/top-quality-china-wrought-iron-stinger-staircase-wooden-tread-stairs 1 -
+/public/user/js/jquery.countup.min.js 1 -
+/product-detail/hot-sale-china-indoor-stainless-steel-rod-railing-spiral-stair-case-design-with-wood-handrail 1 -
+/public/user/js/bootstrap.bundle.min.js 1 -
+/public/index.php/product-detail/foshan-factory-walnut-hardwood-kitchen-cabinets-design-custom-made-espresso-solid-wood-kitchen-cabinet 1 -
+/search-product 3 -
+/product-detail/rapid-delivery-for-china-new-design-solid-frameless-glass-pool-fence-side-mount-spigot-for-australia-market 1 -
+/excepteur-sint-occaecat-cupidatat/ 1 -
+/product/woo-ninja-3/ 1 -
+/wp-json 3 -
+/categories/residential/ 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 245
+49.36.177.186 26 175 24150206 20231207150941
+18.119.105.160 12 33 2457315 20231224154220
+100.25.180.92 12 19 19036878 20231203091938
+100.26.215.150 12 19 19036878 20231216093344
+54.89.213.24 12 19 19036878 20231230044658
+194.31.173.201 8 16 1481577 20231221155118
+223.228.196.136 7 46 5576490 20231204074341
+46.101.80.192 7 7 59747 20231201075545
+49.36.235.83 7 33 4263984 20231205173505
+202.131.155.130 6 54 5171166 20231203125519
+147.135.5.39 1 1 13343 20231213124658
+43.130.37.62 2 2 26686 20231220063250
+202.137.142.116 1 1 10631 20231223021742
+182.44.67.97 2 2 26686 20231211005418
+54.234.78.29 1 1 13343 20231210132020
+199.45.154.50 1 3 35915 20231217101953
+5.133.192.184 1 1 13343 20231205193633
+43.157.40.112 1 1 13343 20231221083709
+104.131.168.36 2 2 26686 20231217182608
+124.41.206.24 1 1 10631 20231208122753
+188.165.87.97 1 1 46533 20231211175006
+170.106.159.160 1 1 13343 20231212014417
+199.45.154.49 1 3 35915 20231210055141
+160.20.181.2 1 1 10631 20231219135416
+2.57.169.181 2 2 13343 20231221150139
+139.59.35.6 2 2 26686 20231223193352
+221.229.106.25 2 2 26686 20231231175957
+178.254.24.91 1 1 13343 20231224163619
+167.172.42.71 2 2 26686 20231201200814
+119.3.66.42 1 1 10631 20231209023202
+82.67.12.164 1 1 46533 20231210065144
+107.170.44.20 1 1 46533 20231220015131
+156.235.89.62 2 2 7006 20231209153144
+182.42.105.144 2 2 26686 20231228192758
+52.3.231.146 1 1 13343 20231218202451
+118.91.171.254 1 1 10631 20231201102007
+65.19.141.115 1 1 46533 20231203220735
+142.132.250.173 1 1 10631 20231207235137
+152.58.106.232 5 42 4802472 20231219071034
+5.133.192.166 1 2 14902 20231212154553
+43.134.10.18 2 2 26686 20231212163409
+115.84.76.125 1 1 10631 20231226183608
+182.42.110.255 3 3 40029 20231216141919
+223.15.245.170 1 1 13343 20231209065510
+51.254.49.110 1 1 46533 20231211184600
+178.254.29.124 1 1 13343 20231206072834
+58.49.233.126 1 1 13343 20231205032200
+107.178.231.18 1 1 10631 20231220172709
+212.102.33.185 2 2 14134 20231203003412
+191.253.71.186 1 1 10631 20231219172633
+49.51.179.103 1 1 13343 20231207043745
+203.145.56.224 4 40 5526791 20231215121618
+124.225.164.130 1 1 13343 20231229064943
+161.35.197.8 2 2 26686 20231229182441
+199.244.88.228 1 1 13343 20231225165506
+175.44.42.74 1 1 10618 20231202074416
+47.243.250.234 1 1 10631 20231210032517
+125.75.66.97 1 1 13343 20231204160114
+51.77.122.164 2 2 14134 20231213023456
+203.33.203.148 2 2 26686 20231222024752
+163.53.187.70 1 1 10631 20231201202335
+20.106.90.80 2 2 93066 20231202165515
+101.0.53.9 4 30 4223724 20231225143253
+95.214.55.187 1 1 46533 20231201054634
+182.44.12.37 1 1 13343 20231224075005
+128.65.101.106 4 33 5489323 20231213091812
+152.58.100.220 5 36 4410761 20231215121138
+89.76.210.116 3 3 85297 20231201212617
+42.83.147.54 1 1 13343 20231221212530
+223.244.35.77 3 3 40029 20231230123217
+138.219.73.117 2 2 14134 20231215031404
+118.91.170.46 1 1 10631 20231208185655
+44.204.148.88 2 3 2738860 20231203054050
+75.101.198.97 1 3 33190 20231205205035
+34.222.107.142 1 1 13343 20231227132408
+121.229.185.160 1 1 13343 20231226044500
+43.131.62.4 1 1 13343 20231207210238
+34.222.67.91 1 1 13343 20231215132734
+54.226.126.239 3 5 5421340 20231216113937
+116.212.142.98 1 1 10631 20231205221728
+199.244.88.218 1 1 13343 20231213131559
+3.236.73.124 1 3 33190 20231203171902
+18.213.245.107 3 5 5421340 20231203101052
+134.209.236.217 2 2 26686 20231204083501
+54.87.59.211 2 2 26686 20231206011325
+132.226.13.30 1 1 10631 20231220104651
+175.44.42.166 1 1 10618 20231211200453
+139.59.157.103 2 2 26686 20231225205316
+199.45.155.34 2 6 71830 20231210153246
+58.53.218.148 3 3 139599 20231214042059
+18.207.152.116 1 1 10631 20231228225302
+51.89.230.56 1 1 13343 20231205164600
+43.131.248.209 1 1 13343 20231215213214
+68.183.126.8 2 2 26686 20231207200116
+168.119.235.87 1 1 13343 20231221194941
+125.94.144.102 1 1 13343 20231219194615
+170.106.171.77 2 2 26686 20231220135634
+103.121.37.12 1 1 10631 20231225124150
+161.35.33.221 2 2 26686 20231219200551
+202.137.134.247 1 1 10631 20231227223016
+175.6.217.4 2 2 26686 20231231032202
+161.35.92.116 2 2 26686 20231218125934
+13.52.184.181 1 1 13343 20231208165441
+191.101.209.150 3 3 85297 20231227030947
+130.185.156.157 2 2 14134 20231215175154
+155.254.49.81 2 2 14134 20231229185342
+93.158.91.10 1 2 14902 20231206102252
+64.227.139.72 2 2 26686 20231225183144
+216.246.100.92 1 1 0 20231206033139
+5.8.251.65 2 2 14134 20231221050151
+159.89.123.23 2 2 26686 20231213190243
+200.125.178.76 1 1 10631 20231231162704
+49.7.227.204 2 2 26686 20231223050701
+161.35.73.214 2 2 26686 20231231201835
+43.130.7.211 1 1 13343 20231228014317
+1.202.249.94 1 1 46533 20231224183821
+43.153.1.90 1 1 13343 20231201031142
+202.62.62.51 1 1 10631 20231214035454
+164.92.254.189 2 2 26686 20231203192755
+172.93.148.164 2 2 14134 20231217032614
+223.190.87.47 1 6 97121 20231218120250
+113.219.218.197 1 1 13343 20231223131035
+92.87.142.140 1 1 10631 20231218044321
+35.88.189.11 1 1 13343 20231203131443
+182.42.104.32 3 3 40029 20231218163646
+182.43.70.143 2 2 26686 20231222112237
+54.189.33.14 1 1 13343 20231219133609
+110.41.112.92 1 1 10631 20231219210325
+199.45.155.16 1 3 35915 20231210101700
+43.159.128.172 1 1 13343 20231214202101
+35.90.174.38 1 1 13343 20231222214051
+107.178.231.19 1 1 10631 20231226200915
+165.154.224.222 6 6 80019 20231228043905
+149.56.160.245 1 1 46533 20231216141524
+49.36.24.62 1 5 133241 20231229050927
+199.244.88.229 1 1 13343 20231204184322
+20.94.215.56 4 4 43340 20231225232150
+177.152.106.102 1 1 10631 20231205230308
+136.144.147.242 3 3 40029 20231213032600
+51.15.197.215 1 1 10631 20231224210142
+199.45.155.19 1 3 35915 20231204084915
+167.71.248.237 2 2 26686 20231211190544
+182.42.111.213 1 1 13343 20231213030550
+188.165.87.103 1 1 46533 20231211175143
+45.58.38.92 1 1 13343 20231227202753
+113.132.43.233 1 1 10631 20231215081613
+34.87.4.3 1 1 13343 20231218113606
+199.127.56.236 4 39 3485407 20231203060606
+222.79.104.23 2 2 26686 20231212171640
+170.78.0.146 1 1 10631 20231215043059
+117.33.163.216 1 1 13343 20231229205816
+182.44.8.254 2 2 26686 20231225011805
+67.205.50.108 3 3 40029 20231216004727
+42.83.147.56 1 1 13343 20231205101359
+161.123.130.72 2 2 14134 20231228222628
+122.224.250.86 1 1 10631 20231216010054
+161.35.22.147 2 2 26686 20231205212010
+200.10.34.144 2 2 14134 20231206033138
+152.58.92.77 2 2 13330 20231204073642
+154.201.42.224 2 2 14134 20231220140941
+199.45.155.35 2 6 71830 20231221134820
+185.198.240.139 1 1 3503 20231201223240
+101.91.148.219 1 1 13343 20231203043030
+104.237.131.130 1 1 10631 20231210062154
+182.42.105.85 2 2 26686 20231225102452
+5.133.192.94 1 2 14902 20231225000218
+196.197.25.8 2 2 14134 20231205084217
+182.69.182.63 4 47 4959945 20231229055719
+5.133.192.133 1 2 14902 20231231052403
+5.133.192.136 1 2 14902 20231218203729
+42.83.147.53 4 4 53372 20231219195008
+83.145.36.70 1 1 0 20231224101038
+51.15.138.138 4 4 0 20231211021023
+36.41.75.167 3 3 40029 20231220224443
+173.239.214.25 1 1 10631 20231201223237
+200.46.228.189 1 1 10631 20231227152634
+104.49.26.202 4 40 5808183 20231211170103
+154.56.60.242 1 1 13343 20231205083431
+107.178.207.180 4 39 5719725 20231208012147
+34.203.75.217 2 3 2738860 20231216042824
+43.153.110.177 2 2 26686 20231216224806
+31.146.112.238 1 1 10631 20231214165715
+65.154.226.171 1 1 13343 20231216095320
+103.12.163.176 1 1 10631 20231230040037
+178.79.152.61 2 2 23974 20231221083450
+65.154.226.167 4 32 5613775 20231219151942
+180.102.134.69 1 1 13343 20231215130450
+34.212.88.102 1 1 13343 20231227132114
+34.221.173.208 2 2 26686 20231223134915
+43.135.129.233 1 1 13343 20231212100546
+185.62.85.75 5 5 66715 20231218195419
+194.35.117.167 4 8 740793 20231221145015
+157.122.183.219 1 1 10631 20231215075442
+181.177.100.77 2 2 14134 20231201092457
+106.119.167.146 1 1 13343 20231224152940
+134.73.70.44 2 2 14134 20231227210150
+165.22.233.60 1 1 46533 20231214033944
+64.225.12.70 2 2 26686 20231222072810
+64.43.91.214 2 2 14134 20231230032902
+143.244.144.109 2 2 26686 20231209205413
+54.152.97.17 2 3 2738860 20231230004511
+192.71.38.71 1 1 13343 20231231203323
+167.248.133.39 1 3 35915 20231217105448
+35.92.207.157 1 1 13343 20231203131501
+43.159.129.209 1 1 13343 20231211093057
+207.228.37.174 1 1 13343 20231229012530
+123.187.240.242 1 1 13343 20231227155831
+102.164.248.21 1 1 10631 20231223145851
+182.44.10.67 2 2 26686 20231227081420
+203.2.64.59 1 1 13343 20231226221003
+139.59.177.78 2 2 26686 20231221185734
+180.110.203.108 2 2 26686 20231213181629
+165.227.220.131 2 2 26686 20231208070351
+51.254.199.11 4 4 53372 20231229071448
+114.96.103.33 2 2 26686 20231217235012
+18.139.221.184 1 1 13343 20231206065232
+157.245.100.183 2 2 26686 20231215190203
+111.172.249.49 3 3 40029 20231214035254
+34.222.53.207 1 1 13343 20231203131426
+43.135.181.13 1 1 13343 20231204050126
+68.178.156.243 2 2 88389 20231215195956
+185.181.60.189 1 1 13343 20231215035156
+34.215.136.251 1 1 13343 20231219133543
+152.58.100.241 0 6 24900 
+34.218.238.144 1 1 13343 20231215132442
+216.246.100.94 2 2 0 20231222160757
+54.149.38.61 1 1 13343 20231227132406
+196.242.200.220 1 1 3503 20231203232806
+175.44.42.169 1 1 10618 20231226115809
+34.219.124.192 1 1 46533 20231208200801
+66.73.183.179 1 1 10631 20231201101750
+181.214.167.52 4 8 740785 20231226031915
+147.182.176.47 2 2 26686 20231227183713
+149.56.150.33 1 1 46533 20231215082643
+103.116.142.98 1 1 10631 20231213032825
+178.212.52.67 1 1 10631 20231210063414
+54.202.191.230 1 1 46533 20231212012252
+182.52.50.168 1 1 10631 20231213153940
+43.131.48.214 2 2 26686 20231218090431
+3.231.218.48 3 5 5421340 20231230064129
+208.113.239.67 1 1 13343 20231212024832
+182.44.2.148 1 1 13343 20231219015038
+185.3.134.70 2 2 14134 20231229110616
+196.247.161.251 2 2 14134 20231222160755
+43.157.66.187 1 1 13343 20231214120148
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 31
+20231201 26 69 5449799 12
+20231202 17 95 10836031 8
+20231203 43 115 35925052 18
+20231204 17 60 5741708 9
+20231205 25 78 8674822 14
+20231206 10 11 109094 9
+20231207 10 36 4301070 6
+20231208 14 49 5871081 10
+20231209 7 7 80849 6
+20231210 11 19 262115 11
+20231211 16 52 6011772 9
+20231212 9 10 154836 8
+20231213 23 52 5744698 15
+20231214 8 8 200890 8
+20231215 27 100 10264279 16
+20231216 28 38 27374329 12
+20231217 9 13 152679 7
+20231218 15 21 280058 10
+20231219 20 85 10554884 12
+20231220 8 8 121958 7
+20231221 25 39 2392506 12
+20231222 9 9 94192 7
+20231223 9 9 114663 7
+20231224 18 39 2554508 7
+20231225 18 45 4399341 10
+20231226 10 14 812694 7
+20231227 15 15 227437 11
+20231228 7 7 78124 5
+20231229 15 62 5201512 9
+20231230 21 31 27235186 7
+20231231 7 8 92248 6
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+5mn-15mn 2
+30s-2mn 1
+2mn-5mn 2
+15mn-30mn 4
+0s-30s 285
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 14
+/ 337 4923001 280 239
+/contact.html 33 218199 4 23
+/documents/animation_lmgtkn04.json 24 36900 0 12
+/fonts/Satoshi-Regular.otf 21 676974 0 1
+/fonts/Satoshi-Medium.otf 21 681283 0 2
+/about.html 17 401857 6 1
+/projects.html 11 117771 3 4
+/products.html 7 54762 2 3
+/privacy-policy.html 7 42822 0 1
+/shipping.html 7 45847 0 1
+/terms-conditions.html 6 87498 0 6
+/fonts/Satoshi-Bold.otf 4 127050 0 1
+/careers.html 1 7353 0 0
+/product-info.html 1 6088 0 1
+END_SIDER

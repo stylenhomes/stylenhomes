@@ -1,0 +1,933 @@
+AWSTATS DATA FILE 7.7 (build 20161204)
+# If you remove this file, all statistics for date 202311 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.stylenhomes.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 1998                
+POS_TIME 2685                
+POS_VISITOR 15820               
+POS_DAY 28235               
+POS_DOMAIN 3544                
+POS_LOGIN 4226                
+POS_ROBOT 4381                
+POS_WORMS 5240                
+POS_EMAILSENDER 5371                
+POS_EMAILRECEIVER 5514                
+POS_SESSION 28980               
+POS_SIDER 29169               
+POS_FILETYPES 5649                
+POS_DOWNLOADS 5967                
+POS_OS 6080                
+POS_BROWSER 6334                
+POS_SCREENSIZE 7935                
+POS_UNKNOWNREFERER 8009                
+POS_UNKNOWNREFERERBROWSER 8605                
+POS_ORIGIN 8812                
+POS_SEREFERRALS 8955                
+POS_PAGEREFS 9142                
+POS_SEARCHWORDS 9465                
+POS_KEYWORDS 9617                
+POS_MISC 2349                
+POS_ERRORS 9676                
+POS_CLUSTER 4082                
+POS_SIDER_404 9808                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20231201020044 3537 976519 9237622466107
+FirstTime 20231101004044
+LastTime 20231130225154
+LastUpdate 20231201043529 3537 3307 222 7 0
+TotalVisits 362                 
+TotalUnique 311                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 314                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 0 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 48 52 2444595 21 45 3497434
+1 10 11 130216 49 83 1698634
+2 9 10 85466 26 44 871611
+3 24 24 312170 38 72 4320494
+4 41 79 11214611 45 91 6906273
+5 21 68 6955395 26 50 5776425
+6 14 29 14323672 29 42 927036
+7 44 56 2701714 64 117 5906280
+8 24 43 2260232 38 81 5835341
+9 25 70 42776988 52 121 2618311
+10 38 148 27147779 22 49 1983665
+11 23 86 9438149 40 68 1838761
+12 22 68 5389516 31 64 2124912
+13 67 233 27097653 40 106 5586116
+14 38 93 8844865 47 68 1170384
+15 23 54 6098255 46 71 916581
+16 33 33 241753 34 73 6005310
+17 21 21 197466 34 99 5975055
+18 52 62 1985420 60 74 1507608
+19 31 57 4548129 63 86 4443447
+20 46 99 8753600 47 67 2615207
+21 26 76 8281035 19 37 949786
+22 46 50 2473190 28 59 959655
+23 32 87 7627455 45 97 1898972
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 33
+us 335 497 90387556
+in 138 674 87850676
+cn 64 92 4644086
+de 51 51 463682
+nl 31 31 278531
+au 29 29 201100
+gb 20 20 209636
+ca 16 52 4171565
+fr 10 11 202025
+hk 10 56 6833508
+md 1 1 10631
+tr 2 2 26686
+jp 1 1 13343
+es 7 45 5609300
+no 3 3 27176
+ru 1 1 138
+cr 1 1 10631
+sg 7 7 39696
+kh 1 1 10631
+id 3 3 34605
+co 6 6 71707
+vn 1 1 10631
+th 1 1 10631
+bg 2 2 10791
+it 2 2 3100
+br 2 2 21047
+pl 1 1 46533
+cz 2 2 21262
+ar 1 1 10416
+fi 1 1 4756
+se 6 10 72201
+gt 1 1 10631
+iq 1 1 10416
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 19
+AhrefsBot/ 212 20106399 20231126025147 21
+Googlebot/ 211 5490638 20231130093014 38
+bingbot/ 136 23029729 20231130232901 32
+YandexBot/ 122 358146 20231130204416 89
+no_user_agent 52 1139714 20231129085047 0
+crawl 50 344954 20231128013116 5
+dataprovider\.com 46 5999050 20231126045351 1
+Googlebot\-Image/ 38 4204533 20231120151822 0
+link 31 221687 20231129152835 2
+unknown 24 1062 20231127225641 24
+panscient 2 13072 20231105161735 1
+ips\-agent 5 36166 20231104072049 2
+curl 2 88856 20231110055329 0
+SemrushBot/ 4 39161 20231111151257 1
+python 2 302 20231102192741 0
+YandexImages/ 6 7952 20231130144913 0
+SurdotlyBot/ 1 50 20231115055701 1
+bot[\s_+:,\.\;\/\\-] 10 105937 20231129180146 2
+^mozilla\/5\.0$ 6 80058 20231129015228 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 14
+css 77 893034 0 0
+png 151 60020278 0 0
+env 1 154 0 0
+txt 1 179 0 0
+alfa 1 173 0 0
+json 23 36389 0 0
+otf 55 1779897 0 0
+php 18 3015 0 0
+html 657 7426077 0 0
+js 53 83571325 0 0
+jpg 59 1577510 0 0
+jpeg 292 45532319 0 0
+Unknown 3 465 0 0
+svg 218 488509 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/wp-content/plugins/login-as-customer-or-user/readme.txt 1 0 179
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 14
+linuxandroid 121 37
+winxp 4 3
+ios_iphone 266 83
+win2000 1 1
+macosx5 1 1
+linuxubuntu 1 1
+linux 222 196
+win7 28 27
+macosx 530 188
+win8 3 3
+macosx9 1 1
+win8.1 1 1
+win10 362 196
+Unknown 68 20
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 76
+chrome107.0.5304 6 5
+chrome98.0.4758.102 2 2
+firefox117.0 10 10
+chrome79.0.3945.79 39 4
+safari15.4 2 2
+portalmmm 1 1
+chrome112.0.0.0 24 12
+firefox114.0 29 29
+opera89.0.4447.51 44 44
+chrome83.0.4103.97 17 17
+chrome58.0.3029.110 2 2
+chrome60.0.3112.78 1 1
+chrome103.0.5060.53 3 3
+chrome114.0.5735.90 1 1
+chrome91.0.4472.114 3 3
+opera93.0.0.0 1 1
+chrome108.0.0.0 33 33
+opera102.0.0.0 4 4
+edge44 18 18
+chrome80.0.3987.162 1 1
+firefox112.0 2 2
+chrome68.0.3440.106 1 1
+lg\- 1 1
+chrome60.0.3112.107 15 15
+chrome100.0.4896.60 3 3
+chrome99.0.4844.83 1 1
+chrome103.0.5060.129 59 12
+chrome93.0.4577.63 1 1
+firefox45.0 2 2
+firefox115.0 1 1
+mozilla 21 9
+netscape5.0 4 4
+safari17.1.1 42 6
+chrome196.3.1597.530 2 2
+firefox118.0 1 1
+chrome116.0.0.0 295 85
+android 2 2
+chrome87.0.4280.88 1 1
+chrome69.0.3368.135 1 1
+firefox106.0 6 5
+firefox105.0 4 4
+firefox95.0 3 3
+chrome104.0.5109.0 3 3
+iphone 21 5
+chrome103.0.0.0 4 4
+safari17.0.1 46 5
+safari16.6 5 5
+chrome83.0.4103.61 2 1
+chrome119.0.0.0 184 25
+chrome74.0.3729.169 4 4
+chrome71.0.2623.112 2 2
+safari13.0.3 46 46
+Unknown 44 8
+chrome114.0.0.0 131 131
+safari17.0 51 11
+chrome94.0.4606.81 52 26
+firefox119.0 3 2
+chrome118.0.0.0 171 51
+chrome118.0.5993.65 1 1
+chrome106.0.5249 10 10
+safari17.1 60 10
+chrome76.0.3809.100 1 1
+chrome85.0.4183.102 1 1
+chrome110.0.0.0 5 5
+chrome115.0.0.0 4 2
+chrome113.0.0.0 7 7
+chrome109.0.0.0 1 0
+chrome79.0.3945.88 3 3
+msie11.0 1 1
+chrome67.0.3396.99 1 1
+chrome89.0.4389.82 2 2
+chrome117.0.0.0 19 19
+firefox81.0 2 2
+chrome105.0.0.0 10 6
+chrome96.0.4664.45 1 1
+chrome103.0.5060.114 2 2
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 9
+Mozilla/5.0_researchscan.comsys.rwth-aachen.de 20231123233257
+LG-LX550_AU-MIC-LX550/2.0_MMP/2.0_Profile/MIDP-2.0_Configuration/CLDC-1.1 20231129231640
+cpp-httplib/0.10.9 20231106101456
+Mozilla/5.0_(compatible;_Example3/1.0;__https://www.example3.com/domain/stylenhomes.com) 20231118225029
+Ruby 20231104174528
+portalmmm/2.0_N410i(c20;TB) 20231113004247
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20231128143906
+Go-http-client/1.1 20231130182007
+SiteGround_Lighthouse 20231120044556
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 4
+cpp-httplib/0.10.9 20231106101456
+Ruby 20231104174528
+Go-http-client/1.1 20231130182007
+SiteGround_Lighthouse 20231120044556
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 428 450
+From1 11 11
+From2 10 10
+From3 5 5
+From4 304 1133
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 3
+bing 3 3
+google_com 1 1
+www_google_com 6 6
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 5
+https://www.seosking.xyz 1 1
+https://style-n-homes.webflow.io 1 1
+https://www.besthatcheries.com 1 1
+https://fnjaw.lighthearteds.shop 1 1
+https://tnsdq.lighthearteds.shop 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 4
+403 121 2269818
+206 4 135092
+400 1 248
+404 642 12660674
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 153
+/wp-json/wp/v2/tags/29 1 -
+/images/about-us2.jpeg 2 http://stylenhomes.com/about.html
+/gallery-2-cols/ 1 -
+/images/Team-3_1Team-3.webp 23 -
+/tag/css3/feed/ 1 -
+//www.gstatic.com/firebasejs/8.6.8/firebase-database.js 14 -
+/public/index.php/product-detail/new-chinese-style-laundry-cabinet-with-stainless-steel-cabinet 1 -
+/contact 1 -
+/home-menu-bottom-light/ 1 -
+/product/woo-logo-2/ 1 -
+/about-us 1 -
+/contact/ 16 -
+/4-cols-inverted/ 1 -
+/uploads/website-images/logo-2023-01-20-11-04-31-6511.png 1 -
+/solarpanel/wp-content/uploads/revslider/the7-elementor-business-one-page/img001-1-11.jpg 3 https://solarhill.ie/
+/wp-json/wp/v2/tags/22 1 -
+/product-detail/modern-acrylic-kitchen-cabinet-design-with-steel-wine-rack 1 -
+/wp-json/wp/v2/tags/24 1 -
+/public/index.php/product 6 -
+/projects-2-cols/ 2 -
+/landing-parallax/ 1 -
+/home-moving-background/ 1 -
+/process/idea-concept 1 -
+/indx.html 1 -
+/service/office-design/ 2 -
+/home-minimal/ 1 -
+/product-detail/blue-modern-style-wardrobe 1 -
+/wp-json/wp/v2/posts 1 stylenhomes.com/wp-json/wp/v2/posts
+/images/Office-New-York_1Office-New-York.webp 12 -
+/images/Team-5_1Team-5.webp 16 -
+/wp-json/wp/v2/tags/28 1 -
+/home-youtube-video/ 2 -
+/product-category/cabinet/ 1 -
+/tag/application/feed/ 1 -
+/categories/hospitaly/ 1 -
+/undefined 1 https://stylenhomes.com/product-info.html
+/privacy-policy 1 -
+/solarpanel/wp-content/uploads/revslider/the7-elementor-business-one-page/img001-6-11.jpg 3 https://solarhill.ie/
+/wp-login.php 2 -
+/wp-json/wp/v2/users 3 -
+/projects-4-cols/ 2 -
+/privacy-policy.html/ 1 -
+/service/ 2 -
+/2-cols-inverted/ 3 -
+/our-projects/ 3 -
+/service/residential-design/ 1 -
+/images/Office-California_1Office-California.webp 10 https://stylenhomes.com/contact.html
+/logon/LogonPoint/tmindex.html 1 -
+/process/build-install/ 1 -
+/js/webflow.js 4 https://stylenhomes.com/about.html
+/product/ninja-silhouette-2/ 1 -
+/shop/ 2 -
+/onepage-version/ 1 -
+/about.html/ 1 -
+/wp-admin/admin-ajax.php 4 -
+/index.html 4 https://stylenhomes.com/about.html
+/images/youtube_1youtube.png 1 -
+/my-account/ 2 -
+/category/audio/ 2 -
+/public/index.php/blog 6 -
+/solarpanel/wp-content/uploads/2023/04/slider2.jpg 10 https://solarhill.ie/
+/cart/ 1 -
+/solarpanel/wp-content/uploads/2020/02/img001-25-1.jpg 4 https://solarhill.ie/
+/product-category/misc/ 1 -
+/static/admin/javascript/hetong.js 1 -
+/ads.txt 1 -
+//d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js 15 -
+/wp-json/wp/v2/categories/18 1 -
+/faqs.html 1 -
+/products.html 8 -
+/wp-json/oembed/1.0/embed 2 -
+/service/commercial-design/ 1 -
+/service/feed/ 2 -
+/images/recentproject.png 1 -
+/public/index.php/product-detail/100-original-factory-china-frameless-glass-railing-for-swimming-pool-glass-spigot 1 -
+/product-detail/professional-customized-small-furniture-stainless-steel-pulls-drawer-basket-kitchen-wall-cabinets-set-cheap-price 1 -
+/solarpanel/wp-content/uploads/revslider/the7-elementor-business-one-page/img001-8-11.jpg 3 https://solarhill.ie/
+/page/mission 2 -
+/images/Sanjiv-Review-1_1Sanjiv-Review-1.png 57 -
+/wp-cron.php 4 -
+/public/index.php/product-detail/bottom-price-china-swimming-pool-glass-fence-clamp-railing-clamp-glass-spigot 2 -
+/animation_lmgtkn04.js 15 -
+/security.txt 1 -
+/product-category/bed/ 1 -
+/sitemap.xml.gz 2 -
+/wp-content/plugins/byconsole-woo-order-delivery-time/js/byconsolewooodt.js 1 -
+/terms-conditions.html/ 1 -
+/categories/commercial/ 1 -
+/sitemap.xml 5 -
+/tag/html5/ 1 -
+/template/style-guide.html 1 -
+/images/Career-Right_1Career-Right.webp 23 -
+/projects-3-cols/ 2 -
+/feed/ 5 -
+/comments/feed/ 4 -
+/wp-json/wp/v2/tags/30 1 -
+/terms-and-conditions 1 -
+/category/slider/ 2 -
+/wp-json/ 3 -
+/product-detail/classic-style-pvc-kitchen-cabinet-model-no-pv01 1 -
+/portfolio/classic-furnishing/ 1 -
+/email-2=niksasesal@outlook.com 1 -
+/coming-soon-page/ 2 -
+/home-video/ 2 -
+/.well-known/security.txt 2 -
+/author/stylenhomes01gmail-com/ 1 -
+//www.gstatic.com/firebasejs/8.6.8/firebase-app.js 13 -
+/portfolio/modern-elegance-suite/ 1 -
+/template/pricing.html 1 -
+/portfolio/restaurant-in-texas/ 1 -
+/product-category/chair/ 1 -
+/product-detail/snh-9907 1 -
+/gallery-4-cols/ 2 -
+//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js 12 -
+/category/image/ 1 -
+/nemo-enim-ipsam-voluptatem-quia/ 1 -
+/about/ 2 -
+/category/audio/feed/ 1 -
+/faq 1 -
+/landing-video/ 2 -
+/humans.txt 2 -
+/wp-includes/css/buttons.css 1 -
+/images/favicon.png 1 http://stylenhomes.com/about.html
+/functional-and-stylish-wall-to-wall-shelves/ 1 -
+/contact-us 5 -
+/images/emoji-satisfied.svg 2 http://stylenhomes.com/about.html
+/wp-json/wp/v2/pages/256 1 -
+/blog/ 1 -
+/tag/printf/ 1 -
+/the-5-secrets-to-pulling-off-simple-minimal-design/ 9 -
+/product-category/desk/ 1 -
+/webflow.js 12 -
+/wp-json/wp/v2/categories/19 1 -
+/product/patient-ninja/ 1 -
+/category/video/ 1 -
+/privacypolicy.html 1 -
+/product 93 -
+/wp-content/plugins/royal-elementor-addons/assets/js/frontend.js 1 -
+/4-cols-carousel/ 1 -
+/uploads/website-images/favicon-2023-01-18-08-33-31-4862.png 2 -
+/public/index.php/product-detail/modern-l-shaped-kitchen-cabinet-design-philippines-kitchen-cabinet-full-set 1 -
+/public/product-detail/chinese-wholesale-china-hot-sale-304316-stainless-steel-spigot-glass-balustrade-for-balconydeck-from-foshan 5 -
+/wp-json/tdw/save_css 6 -
+/images/Team-1_1Team-1.webp 22 -
+/solarpanel/wp-content/uploads/2020/02/img001-4-1.jpg 4 https://solarhill.ie/
+/product-detail/modern-l-shaped-kitchen-cabinet-design-philippines-kitchen-cabinet-full-set 1 -
+/terms-conditions.html 1 -
+/index.php 15 -
+/email-2=niksasesal%40outlook.com 1 -
+/excepteur-sint-occaecat-cupidatat/ 2 -
+/product/woo-ninja-3/ 1 -
+/solarpanel/wp-content/uploads/2020/02/img001-5-1.jpg 4 https://solarhill.ie/
+/wp-json 18 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 314
+149.102.224.176 28 28 190684 20231111072422
+49.36.177.186 27 81 8563569 20231113211319
+54.157.154.152 19 38 51649136 20231120090323
+173.208.28.78 14 14 95342 20231103144346
+101.0.53.105 14 111 17434218 20231111110839
+167.160.171.252 14 14 95342 20231101223430
+23.81.69.208 14 14 95342 20231111182058
+23.81.50.89 14 14 95342 20231110203822
+196.197.25.87 13 13 88136 20231109001925
+23.95.219.93 13 13 88136 20231103072737
+188.166.158.186 1 1 12203 20231106235142
+199.45.154.50 1 3 35614 20231109075440
+161.35.174.203 2 2 15302 20231105173310
+43.135.130.122 1 1 13343 20231120044138
+23.106.16.72 2 2 14134 20231123034917
+199.45.154.17 1 3 35614 20231109082828
+175.44.42.170 1 1 10618 20231126011127
+190.0.242.7 1 1 10631 20231124013341
+176.9.105.236 3 3 40029 20231125154424
+34.206.72.109 2 2 26084 20231113004247
+52.13.30.62 1 1 13343 20231129141533
+45.132.224.88 1 1 9882 20231112001435
+188.166.150.46 2 2 8948 20231109071108
+188.166.156.175 1 1 4326 20231111122933
+35.89.176.91 1 1 13042 20231113134310
+93.183.131.53 1 1 160 20231101004044
+43.250.158.17 1 1 10416 20231105232704
+156.235.89.62 2 2 14134 20231129163730
+172.241.250.177 1 2 58507 20231128135216
+104.248.175.115 2 2 26084 20231105194914
+206.189.142.143 2 2 26084 20231103192152
+94.172.219.135 1 1 46533 20231121221958
+157.245.98.247 2 2 26686 20231127184524
+37.34.102.46 1 1 10631 20231126031256
+201.90.253.195 1 1 10416 20231108111359
+15.204.182.106 2 2 26084 20231111011439
+125.75.66.97 2 2 26385 20231128151845
+144.91.106.14 2 2 26686 20231123193256
+110.166.71.39 3 3 39728 20231125150615
+44.200.54.235 2 4 5477720 20231120045447
+42.83.147.54 1 1 13343 20231127080334
+42.83.147.55 3 3 40029 20231122152140
+223.244.35.77 1 1 13042 20231111090834
+102.129.235.104 8 16 1481562 20231126210007
+181.214.206.17 1 1 44428 20231109082842
+170.106.183.198 1 1 13343 20231122211233
+43.153.70.68 1 1 13343 20231123191845
+64.64.224.185 11 39 2914543 20231110232938
+45.132.224.76 1 1 3603 20231112162357
+121.229.185.160 1 1 13343 20231120112145
+54.237.204.105 1 1 10631 20231126073610
+5.133.192.160 1 2 14902 20231130052738
+104.251.82.42 12 14 127365 20231110134611
+35.235.83.174 4 40 5528187 20231120044553
+45.132.224.72 1 1 8811 20231112162406
+102.129.152.100 4 8 757773 20231102230016
+206.189.11.233 1 1 4326 20231106124457
+88.119.166.14 1 1 13042 20231112211944
+18.217.192.129 6 6 68836 20231114001944
+223.238.223.27 3 3 32316 20231130104540
+38.153.160.239 2 2 14134 20231121045457
+175.44.42.231 1 1 10403 20231113210016
+23.236.111.18 3 19 1897085 20231106084910
+54.184.11.43 1 1 13042 20231113134607
+191.101.217.148 3 3 85297 20231119131405
+157.245.221.102 2 2 26686 20231123182731
+54.167.72.147 1 1 13042 20231108151357
+35.171.144.152 3 3 139599 20231129184618
+24.144.94.163 1 1 12203 20231107023551
+65.20.249.178 1 1 10416 20231105062429
+165.22.50.209 1 1 159 20231103193353
+196.245.184.233 2 2 14134 20231126023721
+45.132.224.68 1 1 10416 20231112001431
+159.223.91.17 1 1 4851 20231111074648
+164.92.193.30 1 1 10773 20231106163437
+45.132.224.89 1 1 8811 20231112001437
+206.189.11.221 1 1 13029 20231104220336
+183.136.225.5 2 2 93066 20231127183618
+138.199.31.114 1 1 44428 20231108112010
+36.85.105.215 1 1 10631 20231121142038
+15.204.206.70 3 3 22170 20231111150221
+1.202.249.94 2 2 88856 20231110094329
+109.228.39.109 3 3 40029 20231127022027
+172.225.200.86 1 2 1979542 20231113221917
+167.86.91.103 10 10 41102 20231124085743
+182.42.104.32 1 1 13343 20231128043356
+175.44.42.226 1 1 10618 20231121161454
+194.169.175.93 4 4 671 20231102183253
+167.71.64.39 3 3 28493 20231110090959
+45.132.224.75 1 1 3825 20231112162407
+172.225.186.25 5 46 5004104 20231103125446
+142.93.176.208 2 2 26084 20231106120629
+199.45.155.16 1 3 35915 20231128143900
+196.196.160.141 1 1 2980 20231101200114
+73.70.53.230 4 30 4234364 20231101190758
+36.93.217.133 1 1 13343 20231128230522
+52.194.251.226 1 1 13343 20231119085942
+154.12.129.100 2 2 14134 20231129002008
+199.244.88.225 2 2 26385 20231127180912
+5.133.192.88 1 2 14902 20231123124727
+161.35.236.190 2 2 17503 20231109192107
+182.42.111.213 1 1 13042 20231109062728
+159.89.90.45 2 2 26084 20231101202108
+45.132.224.105 2 2 14259 20231112001443
+150.107.116.226 5 5 65210 20231110030653
+59.111.227.0 4 4 52168 20231109210229
+45.132.224.61 1 1 3603 20231112001431
+5.161.137.178 1 1 46533 20231118225029
+185.212.126.89 1 1 10416 20231113143252
+88.198.48.98 3 3 40029 20231124085743
+45.132.224.77 1 1 3853 20231112001438
+112.120.244.214 8 54 6806822 20231104054148
+84.247.116.163 1 1 0 20231121103918
+45.132.224.71 1 1 8642 20231112162359
+175.44.42.46 1 1 10403 20231102001941
+185.141.35.197 2 2 26686 20231128050139
+93.158.91.31 1 2 14601 20231104222124
+36.41.75.167 1 1 13343 20231121223451
+24.144.82.180 1 1 4461 20231106032706
+154.56.60.242 1 1 13343 20231125112245
+45.132.224.69 2 2 20832 20231112162409
+45.132.224.56 1 1 5813 20231112162408
+54.166.209.7 1 1 151 20231102180314
+182.69.180.60 11 61 8454773 20231118132454
+35.89.127.192 1 1 13042 20231109123357
+66.115.142.162 1 1 44428 20231108185753
+3.89.185.98 1 1 44428 20231102174005
+113.161.88.147 1 1 10631 20231130223148
+15.235.114.125 1 1 13042 20231104174528
+130.255.163.47 1 1 153 20231103020947
+54.190.136.3 1 1 13042 20231113134528
+110.225.81.114 9 49 5889063 20231108130706
+199.45.155.17 1 3 35915 20231128113625
+159.223.86.131 1 1 4333 20231111140556
+216.16.84.97 2 2 88856 20231103084542
+52.34.166.108 1 1 13042 20231109123340
+49.36.235.59 9 76 8616180 20231130154345
+123.187.240.242 2 2 26385 20231125033430
+43.153.11.107 1 1 13343 20231128221646
+125.113.18.155 1 10 645814 20231104063702
+147.182.235.92 1 1 4678 20231106174642
+206.81.20.222 2 2 26084 20231111181221
+203.2.64.59 4 4 53071 20231130225154
+180.110.203.108 1 1 13343 20231121142106
+146.59.52.85 2 2 76461 20231106101456
+51.254.199.11 3 3 39728 20231127123709
+23.81.61.3 12 14 127365 20231102220525
+122.161.66.134 6 45 6807372 20231110125524
+104.250.238.210 7 7 1154 20231102232051
+185.181.60.189 1 1 13042 20231109051944
+60.188.57.0 1 1 13343 20231126065111
+176.102.144.206 1 1 10631 20231118191619
+104.248.227.3 2 2 26686 20231121192543
+45.132.224.86 1 1 3646 20231112001436
+116.212.155.17 1 1 10631 20231130053234
+106.210.98.186 2 6 214588 20231112145644
+143.198.52.27 2 2 26084 20231110133146
+182.44.2.148 1 1 13343 20231120200240
+186.179.100.32 1 1 10416 20231113054936
+104.206.162.207 2 2 14134 20231128125503
+94.247.172.129 1 1 13042 20231103083431
+217.196.100.78 3 3 40029 20231123030219
+176.116.36.156 1 1 13042 20231102220523
+5.9.79.25 3 3 40029 20231124205845
+190.248.146.170 1 1 10631 20231127055346
+64.227.186.204 2 2 26686 20231129194915
+46.228.199.158 1 1 13343 20231127034848
+147.182.225.119 1 1 4678 20231111050605
+182.42.105.144 2 2 26686 20231126164826
+142.132.250.173 1 1 10416 20231111131119
+101.109.253.90 1 1 10631 20231119161429
+38.45.185.133 1 1 13042 20231110134609
+74.91.17.194 1 1 13343 20231120111510
+104.234.53.76 1 1 13343 20231130182007
+57.129.23.62 1 2 358 20231101014337
+52.55.111.77 1 1 13343 20231129231640
+47.88.86.63 1 1 13343 20231129015301
+58.49.233.126 1 1 13042 20231111153407
+179.61.219.65 7 7 1069 20231101044633
+164.92.193.153 2 2 17368 20231106232207
+207.154.232.192 3 3 28404 20231109015024
+34.222.203.136 1 1 44428 20231111171524
+34.212.21.85 1 1 13343 20231125133612
+164.92.98.45 1 1 12203 20231110115439
+34.207.233.203 1 1 38625 20231102205802
+24.144.83.202 2 2 26686 20231120154330
+164.90.170.3 7 7 1068 20231101173609
+3.19.58.18 1 1 148 20231103034849
+164.92.131.146 2 2 26686 20231119194256
+182.44.12.37 2 2 26686 20231130030733
+45.132.224.98 1 1 3365 20231112162400
+182.44.9.147 1 1 13343 20231118212417
+34.222.188.195 1 1 13042 20231105194104
+14.215.163.132 2 2 26686 20231119200102
+159.223.91.60 1 1 10511 20231109101122
+206.189.11.30 2 2 9285 20231108055026
+173.44.213.121 2 2 14134 20231120185942
+69.163.216.129 1 1 10416 20231104101141
+124.226.222.66 1 1 13343 20231127175235
+176.102.130.50 1 1 10631 20231127084233
+45.132.224.97 1 1 10416 20231112001430
+106.207.179.89 1 1 13343 20231130104848
+54.185.163.73 2 2 26084 20231109123316
+147.182.224.75 2 2 15267 20231109043426
+91.107.199.168 1 1 13343 20231126163908
+159.223.80.199 1 1 10773 20231108185950
+164.92.193.122 1 1 13029 20231110150815
+31.211.135.244 1 1 10631 20231130104710
+49.36.235.16 0 2 456572 
+106.221.230.166 7 17 2406414 20231113075451
+143.110.209.218 1 1 4346 20231106025329
+135.181.95.172 1 1 4756 20231108070339
+206.189.10.221 1 1 13029 20231106221815
+172.233.153.79 3 3 491 20231102222010
+212.30.33.56 1 1 46533 20231128135213
+151.237.186.6 2 2 17622 20231103072736
+125.94.144.102 1 1 13343 20231119045750
+45.132.224.55 2 2 7218 20231112162405
+223.238.215.34 6 42 5010598 20231130103116
+175.6.217.4 1 1 13042 20231111010540
+167.99.179.124 2 2 26084 20231109182557
+67.220.86.160 1 1 13042 20231103142219
+45.132.224.94 3 3 24871 20231112162356
+5.133.192.87 1 2 14601 20231111022533
+181.31.197.176 1 1 10416 20231106073646
+45.132.224.66 1 1 9882 20231112162401
+64.23.130.42 2 2 26686 20231125191505
+188.166.158.193 1 1 4851 20231105115115
+159.223.89.136 1 1 4326 20231108110612
+185.196.220.26 0 1 179 
+23.26.55.49 1 1 13042 20231108065610
+36.111.67.189 2 2 26385 20231122063844
+161.35.185.225 1 1 4691 20231104212917
+24.199.118.115 1 1 4516 20231105223822
+107.178.231.17 1 1 10631 20231129205409
+207.154.232.106 2 2 25245 20231109121253
+35.203.250.246 1 1 10416 20231110235144
+18.246.208.243 1 1 13042 20231113134441
+54.202.56.102 1 1 13042 20231113134247
+45.132.224.67 1 1 8811 20231112001440
+113.219.218.197 2 2 26385 20231124124936
+216.24.212.181 1 1 154 20231103104515
+164.92.223.144 2 2 26686 20231124131649
+149.202.248.212 1 1 181 20231103170246
+104.154.229.246 3 3 40029 20231125154421
+137.226.113.44 3 3 39388 20231123233257
+38.154.99.243 2 2 14134 20231120194624
+143.110.213.54 1 1 13029 20231106144725
+167.71.185.196 3 3 27060 20231106221702
+172.98.89.164 3 3 85297 20231123152801
+136.144.147.242 3 3 40029 20231126051251
+122.161.67.8 10 21 1457875 20231113182826
+34.221.49.84 1 1 13042 20231109123102
+199.45.155.19 1 3 35915 20231120093814
+34.220.190.81 1 1 13343 20231125133624
+190.184.202.110 3 3 40029 20231127195224
+113.141.91.58 1 1 13343 20231123100908
+113.70.96.131 1 1 0 20231106084844
+170.106.115.4 1 1 13343 20231124170531
+18.214.37.90 5 10 13553350 20231120105435
+45.132.224.99 1 1 3825 20231112001441
+188.166.145.116 1 1 4864 20231104213605
+45.132.224.60 1 1 8811 20231112162404
+178.19.36.65 1 1 10631 20231128161443
+182.44.8.254 1 1 13042 20231109185405
+68.183.200.229 1 1 160 20231101201455
+172.225.200.70 6 51 7379927 20231113210827
+161.35.185.238 1 1 13029 20231111081718
+80.66.88.90 1 1 44428 20231109135907
+45.132.224.87 1 1 10416 20231112001429
+182.42.111.156 2 2 26385 20231124002933
+172.225.200.110 3 7 2086910 20231114001856
+149.56.150.158 1 1 46533 20231126045331
+101.91.148.219 1 1 13042 20231112070840
+206.189.3.246 1 1 13029 20231106053901
+182.42.105.85 1 1 13042 20231113170200
+216.24.212.185 1 1 152 20231103104515
+196.197.25.8 2 2 14134 20231130083813
+85.214.227.110 3 3 40029 20231123030202
+161.35.166.30 2 2 19545 20231110184708
+45.132.224.84 1 1 3843 20231112162401
+223.238.215.149 1 5 356977 20231119090834
+161.35.166.193 1 1 7342 20231104201654
+173.224.119.245 1 1 188 20231103182443
+103.144.18.137 1 1 10631 20231130130335
+212.30.33.213 4 41 5529746 20231128135249
+54.69.252.129 1 1 13343 20231125133416
+185.190.42.200 1 1 138 20231101222213
+186.179.72.123 1 1 10631 20231127173330
+120.36.236.192 1 20 3085506 20231110232303
+161.35.177.56 2 2 11845 20231109135126
+199.45.155.32 1 3 35915 20231120101928
+1.116.0.192 2 2 16654 20231124170552
+106.119.167.146 1 1 13343 20231119122149
+5.78.65.190 1 1 12203 20231111161647
+161.35.174.220 1 1 4346 20231110143407
+115.245.68.163 5 36 5531253 20231130104940
+188.166.145.147 2 2 17368 20231110100013
+45.188.238.66 1 1 10631 20231128104753
+146.70.117.165 1 1 10631 20231128134836
+212.30.33.98 0 1 11974 
+114.96.103.33 1 1 13343 20231127083010
+38.64.76.23 1 1 10631 20231119164401
+205.169.39.181 5 41 3938646 20231128140615
+120.227.41.15 1 1 10416 20231103074227
+204.48.17.36 1 1 163 20231103111317
+138.197.26.108 2 2 26084 20231113181523
+159.223.206.37 2 2 8665 20231107001630
+181.174.86.106 1 1 10631 20231121092059
+165.22.97.152 1 1 4743 20231109091420
+196.196.160.140 1 1 120 20231102000633
+45.132.224.54 1 1 3646 20231112162402
+47.242.224.70 2 2 26686 20231129105658
+45.61.55.132 1 1 46533 20231128221107
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 27
+20231101 46 73 4362796 11
+20231102 38 46 1476866 14
+20231103 56 136 10924289 19
+20231104 26 82 7633342 19
+20231105 11 11 90413 10
+20231106 23 39 2160779 19
+20231107 2 2 16529 2
+20231108 28 119 14810796 13
+20231109 42 46 515258 25
+20231110 57 119 8743860 18
+20231111 66 90 4236369 20
+20231112 34 39 457769 30
+20231113 65 196 25896384 18
+20231114 10 14 2168788 3
+20231118 15 65 8538623 5
+20231119 14 18 570280 11
+20231120 47 117 77142669 16
+20231121 12 12 159262 10
+20231122 5 5 66715 4
+20231123 20 21 301122 11
+20231124 17 17 214087 9
+20231125 14 14 186802 9
+20231126 16 20 913390 10
+20231127 19 19 311761 14
+20231128 25 104 9829854 16
+20231129 16 16 285242 11
+20231130 34 169 19315279 15
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 5
+5mn-15mn 6
+0s-30s 341
+30s-2mn 9
+2mn-5mn 3
+30mn-1h 3
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 35
+/ 364 5055833 262 233
+/products.html 45 447092 10 13
+/about.html 44 675280 18 14
+/projects.html 29 182116 12 11
+/fonts/Satoshi-Regular.otf 25 808376 2 0
+/contact.html 25 191815 2 16
+/fonts/Satoshi-Medium.otf 24 780366 0 3
+/documents/animation_lmgtkn04.json 23 36389 0 9
+/terms-conditions.html 22 262936 6 7
+/privacy-policy.html 21 110068 7 6
+/wp-content/plugins/WordPressCore/include.php 2 371 1 1
+/ALFA_DATA/alfacgiapi/perl.alfa 1 173 0 0
+/wp-includes/images/include.php 1 169 0 1
+/chosen.php 1 164 1 0
+/legal-policies.html 17 66439 6 6
+/fm1.php 1 157 0 0
+/M1.php 1 158 0 1
+/.env 1 154 1 1
+/wp-content/themes/seotheme/db.php 2 364 0 1
+/complete-order/ 1 180 1 1
+/wp-json/ 3 471 0 0
+/payment.html 17 70771 6 5
+//wp-content/plugins/fix/up.php 1 176 1 1
+/faqs.html 18 75370 6 7
+/wp-content/plugins/press/wp-class.php 1 176 1 0
+/wp-plain.php 2 302 0 0
+/careers.html 18 112219 4 5
+/shipping.html 20 111328 6 6
+/wp-includes/widgets/index.php 1 181 1 1
+/woh.php 1 155 0 0
+/project-condo.html 7 27663 4 5
+/wp-login.php 4 642 4 4
+/fonts/Satoshi-Bold.otf 6 191155 0 2
+/product-info.html 6 36496 0 2
+/wp-json 3 465 0 0
+END_SIDER
