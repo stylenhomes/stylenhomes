@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Directory Manage</title>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    html,
+    body,
+    #app {
+      height: 100%;
+      margin: 0;
+    }
+
+    #app {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 300px;
+      min-height: 100%;
+      background-color: #f5f5f5;
+    }
+
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    .el-menu-vertical-demo {
+      height: 100%;
+    }
+
+    .el-menu-vertical-demo:not(.el-menu--collapse) {
+      width: 300px;
+      min-height: 400px;
+    }
+
+    .thumbnail {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .thumbnail-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 50px;
+      background-color: #f0f0f0;
+      color: #aaa;
+      cursor: not-allowed;
+    }
+
+    .upload-container .thumbnail {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="sidebar">
+      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+        :collapse="isCollapse">
+        <el-menu-item index="2" @click="navigateTo('https://stylenhomes.com/admin_index.html')">
+          <i class="el-icon-menu"></i>
+          <span slot="title" style="font-size: 16px;">一级目录(First Directory)</span>
+        </el-menu-item>
+        <el-menu-item index="3" @click="navigateTo('https://stylenhomes.com/admin_index2.html')">
+          <i class="el-icon-document"></i>
+          <span slot="title" style="font-size: 16px;">二级目录(Second Directory)</span>
+        </el-menu-item>
+        <el-menu-item index="4" @click="navigateTo('https://stylenhomes.com/admin_index3.html')">
+          <i class="el-icon-setting"></i>
+          <span slot="title" style="font-size: 16px;">商品管理(Commodity Manage)</span>
+        </el-menu-item>
+      </el-menu>
+    </div>
+
+    <div class="content">
+      <!-- 这里是右边的内容区 -->
+      <h1>一级目录管理 (First Directory Management)</h1>
+
+      <el-table :data="tableData" stripe style="width: 100%">
+        <!-- Existing columns -->
+        <el-table-column prop="number" label="编号(number)" width="180">
+        </el-table-column>
+        <el-table-column prop="name" label="名字(name)" width="180">
+        </el-table-column>
+        <el-table-column prop="background" label="背景图(Background)" width="180">
+          <template slot-scope="scope">
+            <div v-if="scope.row.background">
+              <img :src="scope.row.background" class="thumbnail" @click="showLargeImage(scope.row.background)">
+            </div>
+            <div v-else class="thumbnail-placeholder">No Image</div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="catalog" label="PDF文件(Catalog)" width="180">
+          <template slot-scope="scope">
+            <div v-if="scope.row.catalog">
+              <el-button icon="el-icon-paperclip" @click="openPDF(scope.row.catalog)" circle></el-button>
+            </div>
+            <div v-else class="thumbnail-placeholder">No File</div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="介绍语(Description)">
+        </el-table-column>
+        <el-table-column prop="isdelete" label="状态(status)" width="180">
+          <template slot-scope="scope">
+            <span>{{ getStatusText(scope.row.isdelete) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作(Operate)">
+          <template slot-scope="scope">
+            <el-button type="primary" icon="el-icon-edit" circle @click="editData(scope.row)"></el-button>
+            <el-button type="danger" v-if="scope.row.isdelete === 'false'" icon="el-icon-download" circle
+              @click="confirmDelete(scope.row)"></el-button>
+            <el-button type="success" v-if="scope.row.isdelete === 'true'" icon="el-icon-upload2" circle
+              @click="confirmList(scope.row)"></el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+
+      <el-button type="primary" icon="el-icon-plus" round @click="showAddDialog"></el-button>
+
+
+      <!-- 编辑数据对话框 -->
+      <el-dialog title="编辑数据 (Edit Data)" :visible.sync="dialogVisible">
+        <el-form :model="form">
+          <el-form-item label="名字 (Name)">
+            <el-input v-model="form.name" readonly></el-input>
+          </el-form-item>
+          <el-form-item label="背景图 (Background)">
+            <el-input v-model="form.background" style="display: none;"></el-input>
+            <input type="file" @change="uploadFile($event, 'background')" style="display: none;"
+              ref="backgroundFileInput">
+            <div class="upload-container">
+              <div v-if="form.background">
+                <img :src="form.background" class="thumbnail">
+              </div>
+              <div v-else class="thumbnail-placeholder">No Image</div>
+              <el-button type="primary" round @click="triggerFileInput('backgroundFileInput')">上传背景图 (Upload
+                Background)</el-button>
+            </div>
+          </el-form-item>
+          <el-form-item label="PDF文件 (Catalog)">
+            <el-input v-model="form.catalog" style="display: none;"></el-input>
+            <input type="file" @change="uploadFile($event, 'catalog')" style="display: none;" ref="catalogFileInput">
+            <div class="upload-container">
+              <el-button icon="el-icon-paperclip" @click="openPDF(form.catalog)" circle
+                :disabled="!form.catalog"></el-button>
+              <el-button type="primary" round @click="triggerFileInput('catalogFileInput')">上传PDF (Upload
+                PDF)</el-button>
+            </div>
+          </el-form-item>
+
+          <el-form-item label="介绍语 (Description)">
+            <el-input v-model="form.description"></el-input>
+          </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">取消 (Cancel)</el-button>
+          <el-button type="primary" @click="submitEdit">提交 (Submit)</el-button>
+        </div>
+      </el-dialog>
+
+      <!-- 新增数据对话框 -->
+      <el-dialog title="新增数据 (Add Data)" :visible.sync="addDialogVisible">
+        <el-form :model="addForm">
+          <el-form-item label="名字 (Name)">
+            <el-input v-model="addForm.name"></el-input>
+          </el-form-item>
+          <el-form-item label="背景图 (Background)">
+            <el-input v-model="addForm.background" style="display: none;"></el-input>
+            <input type="file" @change="uploadAddFile($event, 'background')" style="display: none;"
+              ref="backgroundFileInput">
+            <div class="upload-container">
+              <div v-if="addForm.background">
+                <img :src="addForm.background" class="thumbnail">
+              </div>
+              <div v-else class="thumbnail-placeholder">No Image</div>
+              <el-button type="primary" round @click="triggerFileInput('backgroundFileInput')">上传背景图 (Upload
+                Background)</el-button>
+            </div>
+          </el-form-item>
+          <el-form-item label="PDF文件 (Catalog)">
+            <el-input v-model="addForm.catalog" style="display: none;"></el-input>
+            <input type="file" @change="uploadAddFile($event, 'catalog')" style="display: none;" ref="catalogFileInput">
+            <div class="upload-container">
+              <el-button icon="el-icon-paperclip" @click="openPDF(addForm.catalog)" circle
+                :disabled="!addForm.catalog"></el-button>
+              <el-button type="primary" round @click="triggerFileInput('catalogFileInput')">上传PDF (Upload
+                PDF)</el-button>
+            </div>
+          </el-form-item>
+          <el-form-item label="介绍语 (Description)">
+            <el-input v-model="addForm.description"></el-input>
+          </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="addDialogVisible = false">取消 (Cancel)</el-button>
+          <el-button type="primary" @click="submitAdd">提交 (Submit)</el-button>
+        </div>
+      </el-dialog>
+
+      <!-- 图片查看对话框 -->
+      <el-dialog :visible.sync="imageDialogVisible">
+        <img :src="currentImage" style="width: 100%;">
+      </el-dialog>
+
+      <!-- 数据删除对话框 -->
+      <el-dialog title="确认下架(remove this record?)" :visible.sync="deleteDialogVisible" width="30%" center>
+        <span>你确定要下架这行记录吗？<br>Are you sure you want to remove this record?</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="deleteDialogVisible = false">No</el-button>
+          <el-button type="primary" @click="deleteData">Yes</el-button>
+        </span>
+      </el-dialog>
+
+      <!-- 商品上架对话框 -->
+      <el-dialog title="确认上架(list this record?)" :visible.sync="listDialogVisible" width="30%" center>
+        <span>你确定要上架这行记录吗？<br>Are you sure you want to list this record?</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="listDialogVisible = false">No</el-button>
+          <el-button type="primary" @click="listData">Yes</el-button>
+        </span>
+      </el-dialog>
+    </div>
+  </div>
+
+  <!-- 引入 main.js -->
+  <script src="js/main.js"></script>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- Firebase App (核心Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <!-- Firebase数据库 -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+  <!-- Firebase Storage -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-storage.js"></script>
+
+  <script>
+    // Firebase配置对象
+    var firebaseConfig = {
+      apiKey: "AIzaSyDd_nZmq2hdU_5wKEXjK7xmB8TI4r2hrq0",
+      authDomain: "stylenhomes.firebaseapp.com",
+      projectId: "stylenhomes",
+      storageBucket: "stylenhomes.appspot.com",
+      messagingSenderId: "1234567890",
+      appId: "1:1234567890:web:abcdef123456",
+      measurementId: "G-ABCDEFGH"
+    };
+
+    // 初始化Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // 获取数据库引用
+    var database = firebase.database();
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          visible: false,
+          isCollapse: false,
+          tableData: [],
+          dialogVisible: false,
+          addDialogVisible: false,
+          imageDialogVisible: false,
+          deleteDialogVisible: false,
+          listDialogVisible: false,
+          currentImage: '',
+          form: {
+            name: '',
+            background: '',
+            catalog: '',
+            description: '',
+            isdelete: '',
+            classification: ''
+          },
+          addForm: {
+            name: '',
+            background: '',
+            catalog: '',
+            description: '',
+            isdelete: ''
+          },
+          currentEditingKey: '',
+          currentDeletingKey: '',
+          currentListingKey: ''
+        };
+      },
+      created() {
+        this.fetchDataFromFirebase();
+      },
+      methods: {
+        handleOpen(key, keyPath) {
+          console.log(key, keyPath);
+        },
+        handleClose(key, keyPath) {
+          console.log(key, keyPath);
+        },
+        navigateTo(url) {
+          window.location.href = url;
+        },
+        fetchDataFromFirebase() {
+          var storeRef = firebase.database().ref('Store');
+          storeRef.once('value').then(snapshot => {
+            var storeData = snapshot.val();
+            console.log("Store数据:", storeData);
+            var tableData = [];
+            for (var key in storeData) {
+              var item = storeData[key];
+              if(item.classification===1){
+                tableData.push({
+                number: tableData.length + 1,
+                name: item.Name || key,
+                background: item.Background || '',
+                catalog: item.Catalog || '',
+                description: item.Description || '',
+                isdelete: item.isdelete || 'false'
+              });
+              }
+            }
+            this.tableData = tableData;
+          }).catch(error => {
+            console.error("获取Store数据时出错:", error);
+          });
+        },
+        editData(row) {
+          this.currentEditingKey = row.name;
+          this.form = Object.assign({}, row);
+          this.dialogVisible = true;
+        },
+        submitEdit() {
+          var storeRef = firebase.database().ref('Store/' + this.currentEditingKey);
+          storeRef.update({
+            Background: this.form.background,
+            Catalog: this.form.catalog,
+            Description: this.form.description,
+            Name: this.form.name,
+            isdelete: this.form.isdelete
+          }).then(() => {
+            this.dialogVisible = false;
+            this.fetchDataFromFirebase();
+          }).catch(error => {
+            console.error("更新数据时出错:", error);
+          });
+        },
+        showAddDialog() {
+          this.addForm = {
+            name: '',
+            background: '',
+            catalog: '',
+            description: '',
+            isdelete: 'false'
+          };
+          this.addDialogVisible = true;
+        },
+        submitAdd() {
+          // 先获取所有数据
+          var storeRef = firebase.database().ref('Store');
+          storeRef.once('value')
+            .then(snapshot => {
+              var data = snapshot.val();
+              // 检查名称是否重复
+              for (var key in data) {
+                if (data.hasOwnProperty(key) && data[key].Name === this.addForm.name) {
+                  this.$alert('名称已被使用，请选择其他名称。', '错误', {
+                    confirmButtonText: '确定',
+                    type: 'error'
+                  });
+                  return;
+                }
+              }
+              // 名称不重复，继续添加数据
+              var newRef = firebase.database().ref('Store/' + this.addForm.name);
+              newRef.set({
+                Background: this.addForm.background,
+                Catalog: this.addForm.catalog,
+                Description: this.addForm.description,
+                Name: this.addForm.name,
+                isdelete: this.addForm.isdelete,
+                Products: [],
+                classification: 1,
+                subordinate: 'false'
+              }).then(() => {
+                this.addDialogVisible = false;
+                this.fetchDataFromFirebase();
+              }).catch(error => {
+                console.error("添加数据时出错:", error);
+              });
+            })
+            .catch(error => {
+              console.error("获取数据时出错:", error);
+            });
+        },
+        showLargeImage(imageUrl) {
+          this.currentImage = imageUrl;
+          this.imageDialogVisible = true;
+        },
+        openPDF(pdfUrl) {
+          window.open(pdfUrl, '_blank');
+        },
+
+        getStatusText(isdelete) {
+          if (isdelete === "false") return '在线(on line)';
+          if (isdelete === "true") return '已下架(off line)';
+          return '未知(unknown)';
+        },
+        confirmDelete(row) {
+          this.currentDeletingKey = row.name;
+          this.deleteDialogVisible = true;
+        },
+        deleteData() {
+          var storeRef = firebase.database().ref('Store/' + this.currentDeletingKey);
+          storeRef.update({
+            isdelete: 'true'
+          }).then(() => {
+            this.deleteDialogVisible = false;
+            this.fetchDataFromFirebase();
+          }).catch(error => {
+            console.error("下架数据时出错:", error);
+          });
+        },
+        confirmList(row) {
+          this.currentListingKey = row.name;
+          this.listDialogVisible = true;
+        },
+        listData() {
+          var storeRef = firebase.database().ref('Store/' + this.currentListingKey);
+          storeRef.update({
+            isdelete: 'false'
+          }).then(() => {
+            this.listDialogVisible = false;
+            this.fetchDataFromFirebase();
+          }).catch(error => {
+            console.error("上架数据时出错:", error);
+          });
+        },
+        triggerFileInput(refName) {
+          this.$refs[refName].click();
+        },
+
+        uploadAddFile(event, type) {
+          var file = event.target.files[0];
+          if (!file) return;
+
+          var storageRef = firebase.storage().ref();
+          var fileRef = storageRef.child(`${type}/${file.name}`);
+
+          fileRef.put(file).then(snapshot => {
+            return snapshot.ref.getDownloadURL();
+          }).then(downloadURL => {
+            if (type === 'background') {
+              this.addForm.background = downloadURL;
+            } else if (type === 'catalog') {
+              this.addForm.catalog = downloadURL;
+            }
+            // Reset the file input
+            this.$refs.backgroundFileInput.value = '';
+            this.$refs.catalogFileInput.value = '';
+          }).catch(error => {
+            console.error("Error uploading file:", error);
+          });
+        },
+
+        uploadFile(event, type) {
+          var file = event.target.files[0];
+          if (!file) return;
+
+          var storageRef = firebase.storage().ref();
+          var fileRef = storageRef.child(`${type}/${file.name}`);
+
+          fileRef.put(file).then(snapshot => {
+            return snapshot.ref.getDownloadURL();
+          }).then(downloadURL => {
+            if (type === 'background') {
+              this.form.background = downloadURL;
+            } else if (type === 'catalog') {
+              this.form.catalog = downloadURL;
+            }
+            // Reset the file input
+            this.$refs.backgroundFileInput.value = '';
+            this.$refs.catalogFileInput.value = '';
+          }).catch(error => {
+            console.error("Error uploading file:", error);
+          });
+        }
+
+
+      }
+    });
+
+  </script>
+</body>
+
+</html>
