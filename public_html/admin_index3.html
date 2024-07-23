@@ -1,119 +1,467 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>基础HTML页面</title>
-        <!-- import CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <style>
-      html, body, #app {
-          height: 100%;
-          margin: 0;
-      }
-      #app {
-          display: flex;
-      }
-      .sidebar {
-          width: 200px;
-          min-height: 100%;
-          background-color: #f5f5f5;
-      }
-      .content {
-          flex-grow: 1;
-          padding: 20px;
-          background-color: #fff;
-      }
-      .el-menu-vertical-demo {
-          height: 100%;
-      }
-      .el-menu-vertical-demo:not(.el-menu--collapse) {
-          width: 200px;
-          min-height: 400px;
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commodity Manage</title>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    html,
+    body,
+    #app {
+      height: 100%;
+      margin: 0;
+    }
+
+    #app {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 300px;
+      min-height: 100%;
+      background-color: #f5f5f5;
+    }
+
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      background-color: #fff;
+
+    }
+
+    .el-menu-vertical-demo {
+      height: 100%;
+    }
+
+    .el-menu-vertical-demo:not(.el-menu--collapse) {
+      width: 300px;
+      min-height: 400px;
+    }
+
+    .thumbnail {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .thumbnail-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 50px;
+      background-color: #f0f0f0;
+      color: #aaa;
+      cursor: not-allowed;
+    }
+
+    .upload-container .thumbnail {
+      margin-right: 10px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      /* Adjust the gap between images if needed */
+    }
+
+    .image-cell {
+      width: 60px;
+      height: 60px;
+      /* Maintain aspect ratio */
+    }
+
+    .dimensions-table {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .dimension-row {
+      flex: 1;
+      /* 让每一行占据相同空间 */
+      /* border: 1px solid #ccc; */
+      padding: 5px;
+    }
+
+    .TableContent {
+      /* text-align: center; */
+      width: 100%;
+    }
+
+    .nodisplay {
+      display: none;
+    }
   </style>
-
-
 </head>
+
 <body>
-    <div id="app">
-      <div class="sidebar">
-        <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-            <el-radio-button :label="false">展开</el-radio-button>
-            <el-radio-button :label="true">收起</el-radio-button>
-          </el-radio-group> -->
-          <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-            <el-menu-item index="2" @click="navigateTo('https://stylenhomes.com/admin_index.html')">
-              <i class="el-icon-menu"></i>
-              <span slot="title" >一级目录</span>
-            </el-menu-item>
-            <el-menu-item index="3" @click="navigateTo('https://stylenhomes.com/admin_index2.html')">
-              <i class="el-icon-document"></i>
-              <span slot="title" >二级目录</span>
-            </el-menu-item>
-            <el-menu-item index="4" @click="navigateTo('https://stylenhomes.com/admin_index3.html')">
-              <i class="el-icon-setting"></i>
-              <span slot="title" >商品管理</span>
-            </el-menu-item>
-        </el-menu>
-      </div>
-      <div class="content">
-        <!-- 这里是右边的内容区 -->
-        <h1>商品管理</h1>
-        <p>在这里显示一些内容...</p>
-      </div>  
-            
-        
-       
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <div id="app">
+    <div class="sidebar">
+      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+        :collapse="isCollapse">
+        <el-menu-item index="2" @click="navigateTo('https://stylenhomes.com/admin_index.html')">
+          <i class="el-icon-menu"></i>
+          <span slot="title" style="font-size: 16px;">一级目录(First Directory)</span>
+        </el-menu-item>
+        <el-menu-item index="3" @click="navigateTo('https://stylenhomes.com/admin_index2.html')">
+          <i class="el-icon-document"></i>
+          <span slot="title" style="font-size: 16px;">二级目录(Second Directory)</span>
+        </el-menu-item>
+        <el-menu-item index="4" @click="navigateTo('https://stylenhomes.com/admin_index3.html')">
+          <i class="el-icon-setting"></i>
+          <span slot="title" style="font-size: 16px;">商品管理(Commodity Manage)</span>
+        </el-menu-item>
+      </el-menu>
     </div>
-</body>
+
+    <div class="content">
+      <!-- 这里是右边的内容区 -->
+      <h1>商品管理 (Commodity Manage)</h1>
+      <el-select v-model="selectedSuperior" @change="fetchDataFromFirebase"
+        placeholder="搜索一级目录(Select a first level directory)">
+        <el-option v-for="item in superiorOptions1" :key="item.id" :label="item.name" :value="item.name">
+        </el-option>
+      </el-select>
+      <el-select v-if="showDropdown" v-model="selectedSuperior2" @change="fetchDataFromFirebase"
+        placeholder="搜索二级目录(Select a second level directory)">
+        <el-option v-for="item in superiorOptions2" :key="item.id" :label="item.name" :value="item.name">
+        </el-option>
+      </el-select>
+      <div style="margin-top: 20px;">
+        <el-button icon="el-icon-arrow-left" @click="prevPage">last page</el-button>
+        <span style="margin: 0 10px;">current page: {{ currentPage }}/{{ currentPageMax }}</span>
+        <el-button @click="nextPage">next page
+          <i class="el-icon-arrow-right el-icon--right"></i>
+        </el-button>
+      </div>
+
+      <el-table :data="tableData" stripe class="TableContent">
+        <!-- Existing columns -->
+        <el-table-column prop="number" label="编号(number)" width="120">
+        </el-table-column>
+        <el-table-column prop="Name" label="名字(name)" width="180">
+        </el-table-column>
+        <el-table-column prop="ID" label="商品ID(Commodity ID)" width="180">
+        </el-table-column>
+        <el-table-column prop="Images" label="图片(Images)" width="270">
+          <template slot-scope="scope">
+            <div class="image-grid">
+              <img v-for="(image, index) in scope.row.Images" :key="index" :src="image" class="image-cell"
+                @click="showLargeImage(image)" />
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="Specifications" label="规格(Specifications)" width="180">
+          <template slot-scope="scope">
+            <div v-html="truncatedDescription(formattedText(scope.row.Specifications))"
+              @click="showDetailDescribe(formattedText(scope.row.Specifications))"></div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="Dimensions" label="尺寸(Dimensions)" width="270">
+          <template slot-scope="scope">
+            <div class="dimensions-table">
+              <div v-for="(dimension, index) in scope.row.Dimensions" :key="index">
+                <div class="dimension-row">{{ dimension }}</div>
+              </div>
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="Description" label="描述(Description)" width="270">
+          <template slot-scope="scope">
+            <div v-html="truncatedDescription(formattedText(scope.row.Description))"
+              @click="showDetailDescribe(formattedText(scope.row.Description))"></div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="About" label="关于此产品(About this product)" width="270">
+          <template slot-scope="scope">
+            <div v-html="truncatedDescription(formattedText(scope.row.About))"
+              @click="showDetailDescribe(formattedText(scope.row.About))"></div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="isdelete" label="状态(status)" width="180">
+          <template slot-scope="scope">
+            <span>{{ getStatusText(scope.row.isdelete) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="superior" label="上级(Superior)" width="180">
+        </el-table-column>
+        <el-table-column label="操作(Operate)" width="180">
+          <template slot-scope="scope">
+            <el-button type="primary" icon="el-icon-edit" circle @click="editData(scope.row)"></el-button>
+            <el-button type="danger" v-if="scope.row.isdelete === 'false'||scope.row.isdelete === '未知'"
+              icon="el-icon-download" circle @click="confirmDelete(scope.row)"></el-button>
+            <el-button type="success" v-if="scope.row.isdelete === 'true'" icon="el-icon-upload2" circle
+              @click="confirmList(scope.row)"></el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+
+
+      <el-button type="primary" icon="el-icon-plus" round @click="showAddDialog"></el-button>
+
+
+      <!-- 编辑数据对话框 -->
+      <el-dialog title="编辑数据 (Edit Data)" :visible.sync="dialogVisible" :close-on-click-modal="false">
+        <el-form :model="form">
 
 
 
-<!-- 引入 main.js -->
-<script src="js/main.js"></script>
-<!-- import Vue before Element -->
-<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
-<!-- import JavaScript -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+          <el-form-item label="名字 (Name)" :required="true">
+            <el-input v-model="form.Name"></el-input>
+          </el-form-item>
+          <el-form-item label="商品ID(Commodity ID)" :required="true">
+            <el-input v-model="form.ID" readonly></el-input>
+          </el-form-item>
+          <el-form-item label="图片(Images)">
+            <el-input v-model="form.Images[0]" class="nodisplay"></el-input>
+            <input type="file" @change="uploadFile($event, 'Images0FileInput')" class="nodisplay"
+              ref="Images0FileInput">
+            <el-input v-model="form.Images[1]" class="nodisplay"></el-input>
+            <input type="file" @change="uploadFile($event, 'Images1FileInput')" class="nodisplay"
+              ref="Images1FileInput">
+            <el-input v-model="form.Images[2]" class="nodisplay"></el-input>
+            <input type="file" @change="uploadFile($event, 'Images2FileInput')" class="nodisplay"
+              ref="Images2FileInput">
+            <el-input v-model="form.Images[3]" class="nodisplay"></el-input>
+            <input type="file" @change="uploadFile($event, 'Images3FileInput')" class="nodisplay"
+              ref="Images3FileInput">
 
+            <div class="upload-container">
+              <img :src="form.Images[0]" class="thumbnail" @click="triggerFileInput('Images0FileInput')">
+              <img :src="form.Images[1]" class="thumbnail" @click="triggerFileInput('Images1FileInput')">
+              <img :src="form.Images[2]" class="thumbnail" @click="triggerFileInput('Images2FileInput')">
+              <img :src="form.Images[3]" class="thumbnail" @click="triggerFileInput('Images3FileInput')">
+            </div>
+          </el-form-item>
+          <el-form-item label="规格(Specifications)">
+            <el-input type="textarea" v-model="form.Specifications" :rows="4"></el-input>
+          </el-form-item>
+          <el-form-item label="尺寸(Dimensions)">
+            <el-input v-model="form.Dimensions[0]"></el-input>
+            <el-input v-model="form.Dimensions[1]"></el-input>
+            <el-input v-model="form.Dimensions[2]"></el-input>
+            <el-input v-model="form.Dimensions[3]"></el-input>
+          </el-form-item>
+          <el-form-item label="描述(Description)">
+            <el-input type="textarea" v-model="form.Description" :rows="6"></el-input>
+          </el-form-item>
+          <el-form-item label="关于此产品(About this product)">
+            <el-input type="textarea" v-model="form.About" :rows="6"></el-input>
+          </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="cancelEdit">取消 (Cancel)</el-button>
+          <el-button type="primary" @click="submitEdit">提交 (Submit)</el-button>
+        </div>
+      </el-dialog>
 
+      <!-- 新增数据对话框 -->
+      <el-dialog title="新增数据 (Add Data)" :visible.sync="addDialogVisible" :close-on-click-modal="false">
+        <el-form :model="form" :rules="rules" ref="form">
+          <el-form-item label="上级 (Superior)">
+            <el-input v-model="form.superior" style="display: none;"></el-input>
+            <el-select v-model="form.superior1" @change="changefromSuperior(1)"
+              placeholder="搜索一级目录(Select a first level directory)">
+              <el-option v-for="item in AddsuperiorOptions1" :key="item.id" :label="item.name" :value="item.name">
+              </el-option>
+            </el-select>
+            <el-select v-if="showDropdownAdd" v-model="form.superior2" @change="changefromSuperior(2)"
+              placeholder="搜索二级目录(Select a second level directory)">
+              <el-option v-for="item in superiorOptions2" :key="item.id" :label="item.name" :value="item.name">
+              </el-option>
+            </el-select>
+          </el-form-item>
 
+          <el-form-item label="名字 (Name)" prop="Name">
+            <el-input v-model="form.Name"></el-input>
+          </el-form-item>
+          <el-form-item label="商品ID(Commodity ID)" prop="ID">
+            <el-input v-model="form.ID"></el-input>
+          </el-form-item>
+          <el-form-item label="图片(Images)">
+            <el-input v-model="form.Images[0]" class="nodisplay"></el-input>
+            <input type="file" @change="uploadFile($event, 'Images0FileInput')" class="nodisplay"
+              ref="Images0FileInput">
+            <el-input v-model="form.Images[1]" class="nodisplay"></el-input>
+            <input type="file" @change="uploadFile($event, 'Images1FileInput')" class="nodisplay"
+              ref="Images1FileInput">
+            <el-input v-model="form.Images[2]" class="nodisplay"></el-input>
+            <input type="file" @change="uploadFile($event, 'Images2FileInput')" class="nodisplay"
+              ref="Images2FileInput">
+            <el-input v-model="form.Images[3]" class="nodisplay"></el-input>
+            <input type="file" @change="uploadFile($event, 'Images3FileInput')" class="nodisplay"
+              ref="Images3FileInput">
 
+            <div class="upload-container">
+              <img :src="form.Images[0]" class="thumbnail" @click="triggerFileInput('Images0FileInput')">
+              <img :src="form.Images[1]" class="thumbnail" @click="triggerFileInput('Images1FileInput')">
+              <img :src="form.Images[2]" class="thumbnail" @click="triggerFileInput('Images2FileInput')">
+              <img :src="form.Images[3]" class="thumbnail" @click="triggerFileInput('Images3FileInput')">
+            </div>
+          </el-form-item>
+          <el-form-item label="规格(Specifications)">
+            <el-input type="textarea" v-model="form.Specifications" :rows="4"></el-input>
+          </el-form-item>
+          <el-form-item label="尺寸(Dimensions)">
+            <el-input v-model="form.Dimensions[0]"></el-input>
+            <el-input v-model="form.Dimensions[1]"></el-input>
+            <el-input v-model="form.Dimensions[2]"></el-input>
+            <el-input v-model="form.Dimensions[3]"></el-input>
+          </el-form-item>
+          <el-form-item label="描述(Description)">
+            <el-input type="textarea" v-model="form.Description" :rows="6"></el-input>
+          </el-form-item>
+          <el-form-item label="关于此产品(About this product)">
+            <el-input type="textarea" v-model="form.About" :rows="6"></el-input>
+          </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="addDialogVisible = false">取消 (Cancel)</el-button>
+          <el-button type="primary" @click="submitAdd">提交 (Submit)</el-button>
+        </div>
+      </el-dialog>
 
+      <!-- 图片查看对话框 -->
+      <el-dialog :visible.sync="imageDialogVisible">
+        <img :src="currentImage" style="width: 100%;">
+      </el-dialog>
 
+      <!-- 描述详情对话框 -->
+      <el-dialog :visible.sync="DescriptionDialogVisible">
+        <div v-html="currentDescribe"></div>
+      </el-dialog>
 
-<script>
-  new Vue({
-    el: '#app',
-    data: function() {
-      return { 
-        visible: false,
-        isCollapse: false
-        }
-    },
-    methods : {
+      <!-- 数据删除对话框 -->
+      <el-dialog title="确认下架(remove this record?)" :visible.sync="deleteDialogVisible" width="30%" center>
+        <span>你确定要下架这行记录吗？<br>Are you sure you want to remove this record?</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="deleteDialogVisible = false">No</el-button>
+          <el-button type="primary" @click="deleteData">Yes</el-button>
+        </span>
+      </el-dialog>
+
+      <!-- 商品上架对话框 -->
+      <el-dialog title="确认上架(list this record?)" :visible.sync="listDialogVisible" width="30%" center>
+        <span>你确定要上架这行记录吗？<br>Are you sure you want to list this record?</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="listDialogVisible = false">No</el-button>
+          <el-button type="primary" @click="listData">Yes</el-button>
+        </span>
+      </el-dialog>
+    </div>
+  </div>
+
+  <!-- 引入 main.js -->
+  <script src="js/main.js"></script>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- Firebase App (核心Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <!-- Firebase数据库 -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+  <!-- Firebase Storage -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-storage.js"></script>
+
+  <script>
+    // Firebase配置对象
+    var firebaseConfig = {
+      apiKey: "AIzaSyDd_nZmq2hdU_5wKEXjK7xmB8TI4r2hrq0",
+      authDomain: "stylenhomes.firebaseapp.com",
+      projectId: "stylenhomes",
+      storageBucket: "stylenhomes.appspot.com",
+      messagingSenderId: "1234567890",
+      appId: "1:1234567890:web:abcdef123456",
+      measurementId: "G-ABCDEFGH"
+    };
+
+    // 初始化Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // 获取数据库引用
+    var database = firebase.database();
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          visible: false,
+          isCollapse: false,
+          tableData: [],
+          tableDataSlice: [],
+          dialogVisible: false,
+          addDialogVisible: false,
+          imageDialogVisible: false,
+          deleteDialogVisible: false,
+          listDialogVisible: false,
+          currentImage: '',
+          currentDescribe: '',
+          currentPage: 1,
+          pageSize: 10,
+          currentPageMax: 10,
+          form: {
+            Name: '',
+            ID: '',
+            Images: '',
+            Specifications: '',
+            Dimensions: '',
+            Description: '',
+            About: '',
+            isdelete: '',
+            superior: '',
+            superior1: '',
+            superior2: ''
+          },
+          addForm: {
+            Name: '',
+            ID: '',
+            Images: '',
+            Specifications: '',
+            Dimensions: '',
+            Description: '',
+            About: '',
+            isdelete: '',
+            superior: ''
+          },
+          rules: {
+            Name: [
+              { required: true, message: '请输入名字(Please enter a name)', trigger: 'blur' }
+            ],
+            ID: [
+              { required: true, message: '请输入商品ID(Please enter the product ID)', trigger: 'blur' }
+            ]
+          },
+          currentEditingKey: '',
+          superiorEditingKey: '',
+          currentDeletingKey: '',
+          superiorDeletingKey: '',
+          currentListingKey: '',
+          superiorListingKey: '',
+          showDropdownAdd: false,
+          showDropdown: false,
+          selectedSuperior: '',
+          selectedSuperior2: '',
+          superiorOptions: [],
+          superiorOptions1: [],
+          superiorOptions2: [],
+          AddsuperiorOptions1: [],
+          AddsuperiorOptions2: [],
+          DescriptionDialogVisible: false,
+          CheckSuperior: false
+        };
+      },
+      created() {
+        this.fetchDataFromFirebase('all');
+      },
+      methods: {
         handleOpen(key, keyPath) {
           console.log(key, keyPath);
         },
@@ -122,53 +470,405 @@
         },
         navigateTo(url) {
           window.location.href = url;
+        },
+        fetchDataFromFirebase(value) {
+          var storeRef = firebase.database().ref('Store');
+          storeRef.once('value').then(snapshot => {
+            var storeData = snapshot.val();
+            var tableData = [];
+            for (var key in storeData) {
+              var item = storeData[key];
+              var productsMap = item.Products;
+              if (productsMap) {
+                for (var key2 in productsMap) {
+                  var item2 = productsMap[key2];
+                  var
+                    image0 = '',
+                    image1 = '',
+                    image2 = '',
+                    image3 = '',
+                    dimension0 = '',
+                    dimension1 = '',
+                    dimension2 = '',
+                    dimension3 = '',
+                    num = 0;
+                  for (var keyImages in item2.Images) {
+                    var itemImages = item2.Images[keyImages];
+                    if (num === 0) {
+                      image0 = itemImages;
+                    } else if (num === 1) {
+                      image1 = itemImages;
+                    } else if (num === 2) {
+                      image2 = itemImages;
+                    } else if (num === 3) {
+                      image3 = itemImages;
+                    }
+                    num++;
+                  }
+                  num = 0;
+                  for (var keyDimension in item2.Dimensions) {
+                    var itemDimensions = item2.Dimensions[keyDimension];
+                    if (num === 0) {
+                      dimension0 = itemDimensions;
+                    } else if (num === 1) {
+                      dimension1 = itemDimensions;
+                    } else if (num === 2) {
+                      dimension2 = itemDimensions;
+                    } else if (num === 3) {
+                      dimension3 = itemDimensions;
+                    }
+                    num++;
+                  }
+                  var ImagesMap = [image0, image1, image2, image3];
+                  var DimensionsMap = [dimension0, dimension1, dimension2, dimension3];
+                  // console.log('DimensionsMap:' + JSON.stringify(DimensionsMap));
+                  if (value === 'all' || key === value || item.Superior === value) {
+                    tableData.push({
+                      number: tableData.length + 1,
+                      Name: item2.Name || '',
+                      ID: item2.ID || key2,
+                      Images: ImagesMap || '',
+                      Specifications: item2.Specifications || '',
+                      Dimensions: DimensionsMap || '',
+                      Description: item2.Description || '',
+                      About: item2.About || '',
+                      isdelete: item2.isdelete || '未知',
+                      superior: key || ''
+                    });
+                  }
+                  // console.log('tableData:' + JSON.stringify(tableData));
+                }
+              }
+
+            }
+            // this.tableData = tableData;
+            this.tableDataSlice = tableData;
+            // console.log('tableDataSlice:' + JSON.stringify(this.tableDataSlice));
+            this.currentPageInitialize(Math.ceil(this.tableDataSlice.length / this.pageSize));
+            this.tableData = this.paginatedData();
+            this.fetchSuperiorOptions(1, '');
+          }).catch(error => {
+            console.error("获取Store数据时出错:", error);
+          });
+        },
+        editData(row) {
+
+          // 备份当前表单数据
+          this.backupForm = JSON.parse(JSON.stringify(this.form));
+          this.superiorEditingKey = row.superior;
+          this.currentEditingKey = row.ID;
+          this.form = Object.assign({}, row);
+          // 设置当前编辑的行数据到表单
+          this.form = JSON.parse(JSON.stringify(row));
+          this.form.About = this.formattedText(this.form.About).replace(/<br>/g, '\n');
+          this.form.Description = this.formattedText(this.form.Description).replace(/<br>/g, '\n');
+          this.form.Specifications = this.formattedText(this.form.Specifications).replace(/<br>/g, '\n');
+          this.dialogVisible = true;
+        },
+
+        cancelEdit() {
+          // 将表单数据恢复到备份状态，包括数组
+          this.form = JSON.parse(JSON.stringify(this.backupForm));
+          this.dialogVisible = false;
+        },
+        submitEdit() {
+          this.form.About = this.form.About.replace(/\n/g, '\\n');
+          this.form.Description = this.form.Description.replace(/\n/g, '\\n');
+          this.form.Specifications = this.form.Specifications.replace(/\n/g, '\\n');
+          var storeRef = firebase.database().ref('Store/' + this.superiorEditingKey + '/Products/' + this.currentEditingKey);
+          // console.log('Store/' +this.superiorEditingKey+'/Products/'+ this.currentEditingKey);
+          storeRef.update({
+            Name: this.form.Name,
+            ID: this.form.ID,
+            Images: this.form.Images,
+            Specifications: this.form.Specifications,
+            Dimensions: this.form.Dimensions,
+            Description: this.form.Description,
+            About: this.form.About,
+            isdelete: this.form.isdelete,
+            superior: this.form.superior,
+          }).then(() => {
+            this.dialogVisible = false;
+            // this.fetchDataFromFirebase();
+            this.fetchDataFromFirebase(this.superiorEditingKey);
+          }).catch(error => {
+            console.error("更新数据时出错:", error);
+          });
+        },
+        showAddDialog() {
+          this.form = {
+            Name: '',
+            ID: '',
+            Images: ['', '', '', ''],
+            Specifications: '',
+            Dimensions: ['', '', '', ''],
+            Description: '',
+            About: '',
+            isdelete: '',
+            superior: '',
+            superior1: '',
+            superior2: ''
+          };
+          this.CheckSuperior = false;
+          this.AddsuperiorOptions1 = this.superiorOptions1;
+          var removedElement = this.AddsuperiorOptions1.shift();
+          this.addDialogVisible = true;
+          // this.fetchSuperiorOptions();
+        },
+        changefromSuperior(value) {
+          var storeRef = firebase.database().ref('Store');
+          storeRef.once('value')
+            .then(snapshot => {
+              var data = snapshot.val();
+              for (var key in data) {
+                if (value === 1) {
+                  if (key === this.form.superior1 && data[key].classification === 1 && data[key].subordinate === 'false') {
+                    this.form.superior = this.form.superior1;
+                    this.CheckSuperior = true;
+                    this.showDropdownAdd = false;
+                  } else if (key === this.form.superior1 && data[key].classification === 1 && data[key].subordinate === 'true') {
+                    this.fetchSuperiorOptions(2, this.form.superior1);
+                    this.CheckSuperior = false;
+                    this.showDropdownAdd = true;
+                  }
+                } else if (value === 2) {
+                  if (key === this.form.superior2 && data[key].classification === 2) {
+                    this.form.superior = this.form.superior2;
+                    this.CheckSuperior = true;
+                  }
+                }
+              }
+            })
+            .catch(error => {
+              console.error("changefromSuperior获取数据时出错:", error);
+            });
+        },
+        submitAdd() {
+          // 先获取所有数据
+          var storeRef = firebase.database().ref('Store');
+          storeRef.once('value')
+            .then(snapshot => {
+              var data = snapshot.val();
+              // 检查名称是否重复
+              for (var key in data) {
+                if (data[key].Name === this.form.superior) {
+                  for (var key2 in data[key].Products) {
+                    if (key2 === this.form.ID) {
+                      this.$alert('名称已被使用，请选择其他名称。', '错误', {
+                        confirmButtonText: '确定',
+                        type: 'error'
+                      });
+                      return;
+                    }
+                  }
+                }
+              };
+              if (this.CheckSuperior === false) {
+                this.$message({
+                  message: '请选择目录(Please select a directory)',
+                  type: 'error'
+                });
+                console.log('未选择目录，表单验证失败!');
+                return false;
+              }
+              this.$refs.form.validate((valid) => {
+                if (valid) {
+                  // 验证通过，继续添加数据
+                  var newRef = firebase.database().ref('Store/' + this.form.superior + '/Products/' + this.form.ID);
+                  newRef.set({
+                    Name: this.form.Name,
+                    ID: this.form.ID,
+                    Images: this.form.Images,
+                    Specifications: this.form.Specifications,
+                    Dimensions: this.form.Dimensions,
+                    Description: this.form.Description,
+                    About: this.form.About,
+                    isdelete: 'false',
+                    superior: this.form.superior
+                  }).then(() => {
+                    this.addDialogVisible = false;
+                    this.fetchDataFromFirebase(this.form.superior);
+                  }).catch(error => {
+                    console.error("添加数据时出错:", error);
+                  });
+                  this.addDialogVisible = false;
+                } else {
+                  this.$message({
+                    message: '请填写所有必填字段(Please fill in all required fields)',
+                    type: 'error'
+                  });
+                  console.log('未填写所有必填字段，表单验证失败!');
+                  return false;
+                }
+              });
+
+            })
+            .catch(error => {
+              console.error("获取数据时出错:", error);
+            });
+        },
+        showLargeImage(imageUrl) {
+          this.currentImage = imageUrl;
+          this.imageDialogVisible = true;
+        },
+        showDetailDescribe(value) {
+          this.currentDescribe = value;
+          this.DescriptionDialogVisible = true;
+        },
+        openPDF(pdfUrl) {
+          window.open(pdfUrl, '_blank');
+        },
+
+        getStatusText(isdelete) {
+          if (isdelete === "false") return '在线(on line)';
+          if (isdelete === "true") return '已下架(off line)';
+          return '未知(unknown)';
+        },
+        confirmDelete(row) {
+          this.superiorDeletingKey = row.superior;
+          this.currentDeletingKey = row.ID;
+          this.deleteDialogVisible = true;
+        },
+        deleteData() {
+          var storeRef = firebase.database().ref('Store/' + this.superiorDeletingKey + '/Products/' + this.currentDeletingKey);
+          storeRef.update({
+            isdelete: 'true'
+          }).then(() => {
+            this.deleteDialogVisible = false;
+            this.fetchDataFromFirebase(this.superiorDeletingKey);
+          }).catch(error => {
+            console.error("下架数据时出错:", error);
+          });
+        },
+        confirmList(row) {
+          this.superiorListingKey = row.superior;
+          this.currentListingKey = row.ID;
+          this.listDialogVisible = true;
+        },
+        listData() {
+          var storeRef = firebase.database().ref('Store/' + this.superiorListingKey + '/Products/' + this.currentListingKey);
+          storeRef.update({
+            isdelete: 'false'
+          }).then(() => {
+            this.listDialogVisible = false;
+            this.fetchDataFromFirebase(this.superiorListingKey);
+          }).catch(error => {
+            console.error("上架数据时出错:", error);
+          });
+        },
+        uploadFile(event, refName) {
+          const file = event.target.files[0];
+          const reader = new FileReader();
+
+          reader.onload = (e) => {
+            const imageUrl = e.target.result;
+            const index = refName.replace('Images', '').replace('FileInput', '');
+
+            // 使用 Vue 的 $set 方法确保响应性
+            this.$set(this.form.Images, index, imageUrl);
+
+            // 更新预览图片
+            this.$nextTick(() => {
+              this.form.Images[index] = imageUrl;
+            });
+          };
+          reader.readAsDataURL(file);
+        },
+        triggerFileInput(refName) {
+          this.$refs[refName].click();
+        },
+
+        fetchSuperiorOptions(value, value2) {
+          var storeRef = firebase.database().ref('Store');
+          storeRef.once('value').then(snapshot => {
+            var storeData = snapshot.val();
+            var tableData = [];
+            if (value === 1) {
+              tableData.push({
+                id: tableData.length + 1,
+                name: 'all',
+              });
+            }
+            for (var key in storeData) {
+              if (value === 0) {
+                tableData.push({
+                  id: tableData.length + 1,
+                  name: key,
+                });
+              } else if (value === 1) {
+                if (storeData[key].classification === 1) {
+                  tableData.push({
+                    id: tableData.length + 1,
+                    name: key,
+                  });
+                }
+              } else {
+                if (storeData[key].classification === 2 && storeData[key].Superior === value2) {
+                  tableData.push({
+                    id: tableData.length + 1,
+                    name: key,
+                  });
+                }
+              }
+            }
+            if (value === 0) {
+              this.superiorOptions = tableData;
+            } else if (value === 1) {
+
+              this.superiorOptions1 = tableData;
+            } else if (value === 2) {
+              this.superiorOptions2 = tableData;
+            }
+
+          }).catch(error => {
+            console.error("fetchSuperiorOptions方法获取Store数据时出错:", error);
+          });
+        },
+
+
+        updateSuperior(value) {
+          this.addForm.superior = value;
+          this.showDropdown = true;
+        },
+
+        currentPageInitialize(value) {
+          this.currentPageMax = value;
+          this.currentPage = 1;
+        },
+        handleCurrentChange(val) {
+          this.currentPage = val;
+        },
+        paginatedData() {
+          var start = (this.currentPage - 1) * this.pageSize;
+          var end = this.currentPage * this.pageSize;
+          var date = this.tableDataSlice.slice(start, end);
+          return date;
+        },
+        nextPage() {
+          if (this.currentPage < Math.ceil(this.tableDataSlice.length / this.pageSize)) {
+            this.currentPage += 1;
+            this.tableData = this.paginatedData();
+          }
+        },
+        prevPage() {
+          if (this.currentPage > 1) {
+            this.currentPage -= 1;
+            this.tableData = this.paginatedData();
+          }
+        },
+        formattedText(value) {
+          let formattedValue = value.replace(/\\n/g, '<br>');
+          formattedValue = formattedValue.replace('\\n', '<br>');
+          formattedValue = formattedValue.replace(/\n/g, '<br>');
+          return formattedValue;
+        },
+        truncatedDescription(value) {
+          return value.length > 50 ? value.substring(0, 50) + '...' : value;
         }
       }
-  })
-</script>
-
-
-<script type="module">
-
-   
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-    import { getDatabase, ref, set, get, update, remove, onValue } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
-  
-    
-    const firebaseConfig = {
-        apiKey: "AIzaSyDd_nZmq2hdU_5wKEXjK7xmB8TI4r2hrq0",
-        authDomain: "stylenhomes.firebaseapp.com",
-        projectId: "stylenhomes",
-      
-    };
-    
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-
-    const db = getDatabase();
-    const reference = ref(db, 'Store/');
-
-    get(reference).then((snapshot) => {
-    if (snapshot.exists()) {
-        console.log(snapshot.val());
-    } else {
-        console.log("No data available");
-    }
-    }).catch((error) => {
-    console.error(error);
     });
 
-
-
-
-
-
-
-
-
-
-</script>
+  </script>
+</body>
 
 </html>

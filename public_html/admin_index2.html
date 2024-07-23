@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>First Directory Manage</title>
+  <title>Second Directory Manage</title>
   <!-- import CSS -->
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
@@ -87,13 +87,15 @@
 
     <div class="content">
       <!-- 这里是右边的内容区 -->
-      <h1>一级目录管理 (First Directory Management)</h1>
+      <h1>二级目录管理 (Second Directory Management)</h1>
 
       <el-table :data="tableData" stripe style="width: 100%">
         <!-- Existing columns -->
         <el-table-column prop="number" label="编号(number)" width="180">
         </el-table-column>
         <el-table-column prop="name" label="名字(name)" width="180">
+        </el-table-column>
+        <el-table-column prop="superior" label="上级(Superior)" width="180">
         </el-table-column>
         <el-table-column prop="background" label="背景图(Background)" width="180">
           <template slot-scope="scope">
@@ -204,6 +206,13 @@
           <el-form-item label="介绍语 (Description)">
             <el-input v-model="addForm.description"></el-input>
           </el-form-item>
+          <el-form-item label="上级 (Superior)">
+            <el-input v-model="addForm.superior" @focus="showDropdown = true" style="display: none;"></el-input>
+            <el-select v-if="showDropdown" v-model="selectedSuperior" @change="updateSuperior" placeholder="请选择上级">
+              <el-option v-for="item in superiorOptions" :key="item.id" :label="item.name" :value="item.name">
+              </el-option>
+            </el-select>
+          </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="addDialogVisible = false">取消 (Cancel)</el-button>
@@ -293,11 +302,21 @@
             background: '',
             catalog: '',
             description: '',
-            isdelete: ''
+            isdelete: '',
+            superior: ''
           },
           currentEditingKey: '',
           currentDeletingKey: '',
-          currentListingKey: ''
+          currentListingKey: '',
+
+          showDropdown: true,
+          selectedSuperior: '',
+          superiorOptions: [
+            { id: 'node1', name: 'Node 1' },
+            { id: 'node2', name: 'Node 2' },
+
+          ],
+          tableData: []
         };
       },
       created() {
@@ -321,15 +340,16 @@
             var tableData = [];
             for (var key in storeData) {
               var item = storeData[key];
-              if(item.classification===1){
+              if (item.classification === 2) {
                 tableData.push({
-                number: tableData.length + 1,
-                name: item.Name || key,
-                background: item.Background || '',
-                catalog: item.Catalog || '',
-                description: item.Description || '',
-                isdelete: item.isdelete || 'false'
-              });
+                  number: tableData.length + 1,
+                  name: item.Name || key,
+                  background: item.Background || '',
+                  catalog: item.Catalog || '',
+                  description: item.Description || '',
+                  isdelete: item.isdelete || 'false',
+                  superior: item.Superior || ''
+                });
               }
             }
             this.tableData = tableData;
@@ -366,6 +386,7 @@
             isdelete: 'false'
           };
           this.addDialogVisible = true;
+          this.fetchSuperiorOptions();
         },
         submitAdd() {
           // 先获取所有数据
@@ -392,8 +413,8 @@
                 Name: this.addForm.name,
                 isdelete: this.addForm.isdelete,
                 Products: [],
-                classification: 1,
-                subordinate: 'false'
+                classification: 2,
+                Superior: this.addForm.superior
               }).then(() => {
                 this.addDialogVisible = false;
                 this.fetchDataFromFirebase();
@@ -496,7 +517,33 @@
           }).catch(error => {
             console.error("Error uploading file:", error);
           });
-        }
+        },
+
+        fetchSuperiorOptions() {
+          var storeRef = firebase.database().ref('Store');
+          storeRef.once('value').then(snapshot => {
+            var storeData = snapshot.val();
+            var tableData = [];
+            for (var key in storeData) {
+              if(storeData[key].classification === 1){
+                tableData.push({
+                id: tableData.length + 1,
+                name: key,
+
+              });
+              }
+              
+            }
+            this.superiorOptions = tableData;
+          }).catch(error => {
+            console.error("fetchSuperiorOptions方法获取Store数据时出错:", error);
+          });
+        },
+
+        updateSuperior(value) {
+          this.addForm.superior = value;
+          this.showDropdown = true;
+        },
 
 
       }
