@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test Page</title>
+    <!-- 引入 Vue 和 Element UI 样式 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        /* 样式部分 */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            margin-top: 70px;
+            /* 留出 header 的空间 */
+            padding: 20px;
+        }
+
+
+        .profile-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .profile-box {
+            width: 30%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .profile-top {
+            display: flex;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .profile-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .profile-name {
+            font-weight: bold;
+        }
+
+        .profile-job {
+            color: gray;
+        }
+
+        .profile-description {
+            text-align: center;
+        }
+
+        .student-card {
+            height: 90%;
+            width: 95%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); */
+        }
+
+        .student-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 2px 10px rgba(87, 87, 87, 0.5);
+        }
+
+
+        ,
+                        {
+                            id: 7,
+                            avatarUrl: 'https://randomuser.me/api/portraits/women/8.jpg',
+                            name: 'Charlotte Bronte',
+                            job: 'Landscape Architect - Verified Buyer 22/04/08',
+                            description: 'My search for the perfect partner to bring my dream home to life ended with Style & Homes. Their professionalism, coupled with a genuine passion for creating beautiful spaces, made the entire experience enjoyable. The team listened carefully to my needs and preferences, ensuring that every aspect of the project was tailored to my vision. The quality of their materials is unparalleled, and their attention to detail is truly remarkable. The end result is a stunning home that I am proud to call mine. I am thrilled with the service and results, and I wholeheartedly recommend Style & Homes to anyone seeking a hassle-free and satisfying home renovation journey.'
+                        },
+                        {
+                            id: 8,
+                            avatarUrl: 'https://randomuser.me/api/portraits/men/5.jpg',
+                            name: 'Stephen King',
+                            job: 'Project Manager - Verified Buyer 16/09/26',
+                            description: 'Absolutely delighted with my recent experience with Style & Homes! From the moment I stepped into their showroom, I was impressed by the wide range of high-quality materials and their knowledgeable staff. The entire renovation process was seamless, with timely updates and impeccable attention to detail. The finished product exceeded my expectations – both aesthetically and functionally. I could not be happier with the transformation of my home, and would highly recommend Style & Homes to anyone looking for top-notch building materials and exceptional renovation services.'
+                        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <!-- 商品内容部分 -->
+        <div class="main">
+            <h1>Product List</h1>
+            <p>This is the main content area where the products will be displayed.</p>
+            <!-- 这里可以添加更多的商品内容 -->
+        </div>
+
+
+    </div>
+    <template>
+        <div class="container">
+            <!-- 1个长条 -->
+            <div class="image-container2">
+                <img
+                    src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/apng%2Fcan't_wait_for_black_friday_in_july_shop_deals_of_the_day_now_289912173.jpg?alt=media&token=2d2c8fdf-c5b6-44db-a202-2e562c639277" />
+            </div>
+
+            <div>
+                <div class="text-block-4">kitchen essentials</div><img src="images/underline.svg"
+                    loading="lazy" alt="" class="underline">
+            </div>
+
+            <!-- 1个展示框 -->
+            <div class="image-container">
+                <img src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/apng%2Fkitchen_essentials_for_every_recipe_281523599.jpg?alt=media&token=8b9a6512-9677-4e95-9e53-1563f1ab5f34"
+                    alt="Image 1" />
+            </div>
+
+            <!-- 图文展示框 -->
+            <div class="content-container">
+                <div class="image-section">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/apng%2Fkitchen_275185684.jpg?alt=media&token=e45eb24d-50de-4b2c-909d-ca71585c3370"
+                        alt="Image 2" />
+                </div>
+                <div class="text-section">
+                    <h1>Throwing a dinner party?</h1>
+                    <p>Snag hosting must-haves.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <div class="text-block-4">back to school</div><img src="images/underline.svg" loading="lazy"
+                    alt="" class="underline">
+            </div>
+            <!-- 模块一 -->
+            <div class="image-container" style="margin-top: 40px;height: 400px;">
+                <img src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fback-to-school_staples_for_every_budget_286565227.jpg?alt=media&token=e8d3811e-2f68-4048-a738-f8a2142b97fd"
+                    alt="Image 1" />
+            </div>
+            <div class="product-container" style="margin-top: 40px;">
+                <div class="product-box" v-for="item3 in bannerList2" :key="item3.id">
+                    <a :href="item3.linkUrl" target="_blank" style="height: 80%;">
+                        <img :src="item3.imageUrl" alt="Product" class="product-image">
+                    </a>
+                    <h3>{{item3.title}}</h3>
+                    <p>{{item3.Introduction}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <div class="text-block-4">appliances you need</div><img src="images/underline.svg"
+                    loading="lazy" alt="" class="underline">
+            </div>
+            <!-- 模块二 -->
+            <div class="image-container" style="margin-top: 40px;height: 400px;">
+                <img src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fappliances_you_need_at_prices_you'll_love_281523579.jpg?alt=media&token=3a408da6-a4e0-4cdb-863f-bbcf09917fa4"
+                    alt="Image 1" />
+            </div>
+            <div class="product-container" style="margin-top: 40px;">
+                <div class="product-box" v-for="item4 in bannerList3" :key="item4.id">
+                    <a :href="item4.linkUrl" target="_blank" style="height: 80%;">
+                        <img :src="item4.imageUrl" alt="Product" class="product-image">
+                    </a>
+                    <h3>{{item4.title}}</h3>
+                    <p>{{item4.Introduction}}</p>
+                </div>
+            </div>
+        </div>
+        
+
+
+    </template>
+    <!-- 引入 Element UI 的 JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        import FooterComponent from 'Vue/FooterComponent.vue';
+        new Vue({
+            el: '#app',
+            data: {},
+            components: {
+                FooterComponent
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

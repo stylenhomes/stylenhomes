@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Domus - Webflow Ecommerce website template</title>
+  <!-- 引入 Vue 和 Element UI 样式 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="css/TextPaperStyle.css">
+  <style>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .shippingtext {
+      width: 50%;
+      height: auto;
+      color: rgb(34, 63, 97);
+    }
+
+    .shippingtext h3 {
+      font-size: 28px;
+      font-weight: 400;
+    }
+
+    .shippingtext p {
+      font-size: 20px;
+      font-weight: 200;
+      margin-bottom: 60px;
+    }
+
+    .master-legal {
+      background-color: rgb(243, 242, 238);
+      display: flex;
+      /* 水平居中 */
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 动画容器 -->
+  <div id="animation-container"></div>
+  <!-- 页面内容 -->
+  <div id="content">
+    <div id="app">
+      <!-- 固定在顶部的部分 -->
+      <div class="header">
+        <div class="content">
+          <a href="index_pre.html">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fde6c2683ae3097f09359fead09bea9e.png?alt=media&token=6e1e7f82-6629-41ee-8c67-1d9910b051d0"
+              alt="Company Logo" height="50">
+          </a>
+          <div>
+            <el-button type="info" @click="drawer = true" style="margin-left: 16px;" round class="ShopBtn">
+              <p>Shop by Category</p>
+            </el-button>
+          </div>
+        </div>
+      </div>
+
+      <el-drawer title="Directory Menu" :visible.sync="drawer" :direction="direction" :before-close="handleClose"
+        size="300px">
+        <el-menu default-active="2" class="el-menu-vertical-demo">
+          <el-menu-item v-for="item in menuItemsOnlyOneLevel" :key="item.value" :index="item.value">
+            <i class="el-icon-setting"></i>
+            <template slot="title">
+              <span class="itemtitle" @click="consoleName(item.title)">{{ item.title }}</span>
+            </template>
+          </el-menu-item>
+          <el-submenu v-for="(menuItem, index) in menuItemsOnlyTwoLevel" :key="index" :index="String(index)">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span class="itemtitle" @click="consoleName(menuItem.title)">{{ menuItem.title }}</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item v-for="(option, idx) in menuItem.options" :key="idx">
+                <span class="itemtitle" @click="consoleName(option)">{{ option }}</span>
+              </el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+        </el-menu>
+      </el-drawer>
+
+      <!-- 内容部分 -->
+      <div class="main">
+        <div class="master-legal">
+
+          <div class="shippingtext Josefin-font">
+            <div>
+              <div class="text-block-4">Payment</div>
+              <img src="images/underline.svg" loading="lazy" alt="" class="underline">
+            </div>
+            <p>When operating an ecommerce platform selling interior design products, it&#x27;s important to establish clear payment policies to ensure a secure and transparent transaction process for your customers. Our payment policies are as follows:</p>
+          <h3>1. Accepted Payment Methods</h3>
+          <p>We accept the following payment methods for purchasing interior design products on our platform:</p>
+          <p>- Credit Cards: Visa, Mastercard, American Express, Discover, etc.</p>
+          <p>- Debit Cards: Visa, Mastercard, American Express, Discover, etc.</p>
+          <p>- PayPal- Other secure payment gateways</p>
+          <p>‍</p>
+          <h3>2. Payment Security:</h3>
+          <p>We prioritize the security of our customers&#x27; payment information. All transactions on our platform are encrypted and processed through secure payment gateways. We do not store or have access to your complete payment details, such as credit card numbers or passwords.</p>
+          <p>‍</p>
+          <h3>3. Order Confirmation:</h3>
+          <p>All product prices displayed on our platform are listed in the applicable currency. Prices are subject to change without prior notice. The total order amount will include the product price(s) and any applicable taxes, shipping fees, or handling charges.</p>
+          <p>‍</p>
+          <h3>4. Pricing and Currency:</h3>
+          <p>For written permission, please contact epl@entessa.com. Products derived from the Original Code under the terms of this Derived Work is with you. Should the Work to operate with any other combinations which include the Program is made available by Apple or such Contributor by reason of your rights with two steps: (1) copyright the software, Licensee agrees to defend and indemnify every other Contributor (&quot;Indemnified Contributor&quot;) against any party wishing to do so, attach the following disclaimer in the display of characters in the future.</p>
+          <p>‍</p>
+          <h3>5. Sales Tax:</h3>
+          <p>Sales tax or any other applicable taxes will be applied to your order based on the regulations of the jurisdiction to which the product is being shipped. The applicable tax amount will be calculated during the checkout process and included in the final order total.</p>
+          <p>‍</p>
+          <h3>6. Payment Verification:</h3>
+          <p>In some cases, we may need to verify your payment details before processing your order. This verification process is conducted to prevent fraudulent transactions and protect both our customers and our business. We may request additional information or documentation to complete the payment verification process.</p>
+          <p>‍</p>
+          <h3>7. Payment Authorization and Capture:</h3>
+          <p>When you place an order, the payment will be authorized but not immediately captured. Payment capture occurs once your order has been processed and prepared for shipment. If there are any issues with payment authorization or capture, we will contact you to resolve the matter.</p>
+          <p>‍</p>
+          <h3>8. Order Cancellation and Refunds:</h3>
+          <p>If you need to cancel your order, please contact our customer support team as soon as possible. Orders can only be canceled before they have been processed for shipment. Refunds for canceled orders or eligible returns will be issued in accordance with our Returns and Refunds Policy, using the original payment method whenever possible.</p>
+          <p>‍</p>
+          <h3>9. Payment Disputes:</h3>
+          <p>In the event of a payment dispute or suspected fraudulent activity, we reserve the right to suspend or cancel the order until the issue is resolved. We may request additional information or collaborate with the payment processor to investigate the matter and protect the interests of both parties involved.</p>
+          <p>‍</p>
+          <h3>10. Currency Conversion:</h3>
+          <p>For international orders, currency conversion may be required if the transaction is processed in a currency different from the currency of the customer&#x27;s payment method. Currency conversion rates are determined by the payment processor or financial institution at the time of the transaction.</p>
+          <p>‍</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 页脚部分 -->
+      <div class="footer">
+        <!-- 上部分 -->
+        <div class="footer-top">
+          <div class="footer-left">
+            <div class="footer-column">
+              <h3>Need Help</h3>
+              <ul>
+                <li><a href="contact-pre.html"><span class="footer-column-p">Contact</span></a></li>
+                <li><a href="shipping-pre.html"><span class="footer-column-p">Shipping</span></a></li>
+                <li><a href="faqs-pre.html"><span class="footer-column-p">FAQ'S</span></a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>About</h3>
+              <ul>
+                <li><a href="project-solution-pre.html"><span class="footer-column-p">Project
+                      Solution</span></a></li>
+                <li><a href="about-pre.html"><span class="footer-column-p">About Us</span></a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Legal</h3>
+              <ul>
+                <li><a href="privacy-policy-pre.html"><span class="footer-column-p">Privacy
+                      policy</span></a></li>
+                <li><a href="payment-pre.html"><span class="footer-column-p">Payment</span></a></li>
+                <li><a href="terms-conditions-pre.html"><span class="footer-column-p">Terms</span></a>
+                </li>
+                <li><a href="legal-policies-pre.html"><span class="footer-column-p">Legal
+                      policies</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-right">
+            <div class="qrcode">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Fwebclip.png?alt=media&token=aceaaa76-7d9f-4012-bea3-c6fdf954e484"
+                alt="QR Code" class="qrcode-image">
+            </div>
+            <div class="social-media">
+              <div class="social-media-small">
+                <a href="#"><img
+                    src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-1.png?alt=media&token=2a1c1a1a-9f06-4102-8f3e-545cad9259b3"
+                    alt="1"></a>
+                <a href="#"><img
+                    src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-2.png?alt=media&token=8f0bd000-0b71-4212-9d59-35fd24f0e2ba"
+                    alt="2"></a>
+                <a href="#"><img
+                    src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-3.png?alt=media&token=583993fb-b01b-4c7b-9b34-c7cdea6d477e"
+                    alt="3"></a>
+                <a href="#"><img
+                    src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-4.png?alt=media&token=89dec18b-530e-4357-a52c-99f22b645e53"
+                    alt="4"></a>
+                <a href="#"><img
+                    src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-5.png?alt=media&token=e9b7bbd1-24d7-49c0-8295-ef38f43a546a"
+                    alt="5"></a>
+                <a href="#"><img
+                    src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-6.png?alt=media&token=9fcf39c7-8e5d-4e4e-8423-e1ba3a3d3f3a"
+                    alt="6"></a>
+                <a href="#"><img
+                    src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-7.png?alt=media&token=d1094273-8818-44ab-a6f4-318b2b126514"
+                    alt="7"></a>
+                <a href="#"><img
+                    src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-8.png?alt=media&token=4039e84c-a66b-4187-b0cb-eaef19cd1616"
+                    alt="8"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 下部分 -->
+        <div class="footer-bottom">
+          <p>© 2024 Stylenhomes - All Rights Reserved.</p>
+          <p>Made with ❤️ by Stylenhomes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入Lottie动画库 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+  <!-- 引入 main.js -->
+  <script src="js/main.js"></script>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- 引入 Element UI 的 JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- Firebase App (核心Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <!-- Firebase数据库 -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+  <!-- Firebase Storage -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-storage.js"></script>
+
+  <script>
+    // 加载动画
+    var animationContainer = document.getElementById('animation-container');
+    var content = document.getElementById('content');
+    var animation = lottie.loadAnimation({
+      container: animationContainer,
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      path: 'js/Animation - 1722845777521.json' // 动画文件路径
+    });
+
+    // 设置动画播放速度
+    animation.setSpeed(1.2);
+
+    // 动画播放完成后显示页面内容
+    animation.addEventListener('complete', function () {
+      animationContainer.style.display = 'none';
+      content.style.display = 'block';
+    });
+    // Firebase配置对象
+    var firebaseConfig = {
+      apiKey: "AIzaSyDd_nZmq2hdU_5wKEXjK7xmB8TI4r2hrq0",
+      authDomain: "stylenhomes.firebaseapp.com",
+      projectId: "stylenhomes",
+      storageBucket: "stylenhomes.appspot.com",
+      messagingSenderId: "1234567890",
+      appId: "1:1234567890:web:abcdef123456",
+      measurementId: "G-ABCDEFGH"
+    };
+
+    // 初始化Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // 获取数据库引用
+    var database = firebase.database();
+
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          menuItemsOnlyOneLevel: [],
+          menuItemsOnlyTwoLevel: [
+            {
+              title: 'Data loading...',
+              options: []
+            }
+          ],
+          drawer: false,
+          direction: 'ltr',
+          form: {
+            Name: '',
+            Email: '',
+            Message: ''
+          },
+          submissionMessage: '',
+          submissionError: ''
+        }
+      },
+      created() {
+        this.fetchMenuData();
+      },
+      methods: {
+        fetchMenuData() {
+          var storeRef = firebase.database().ref('Directory');
+          storeRef.once('value').then(snapshot => {
+            var data = snapshot.val(), firstLevelMenu = [], secondLevelMenu = [];
+
+            // console.log('data:' + JSON.stringify(data));
+            for (var key in data) {
+              if (data[key].isdelete === 'false' && data[key].classification === 1 && data[key].subordinate === 'false') {
+                var firstLevelItem = {
+                  title: key
+                };
+                firstLevelMenu.push(firstLevelItem);
+              } else if (data[key].isdelete === 'false' && data[key].classification === 1 && data[key].subordinate === 'true') {
+                var secondLevelItem = {
+                  title: key,
+                  subordinate: data[key].subordinate,
+                  options: []
+                };
+
+                for (var subKey in data) {
+                  if (data[subKey].isdelete === 'false' && data[subKey].classification === 2 && data[subKey].Superior === key) {
+                    secondLevelItem.options.push({ name: subKey });
+                  }
+                }
+                secondLevelItem.options = this.convertMenuToOptions(secondLevelItem.options);
+                secondLevelMenu.push(secondLevelItem);
+              }
+            }
+            this.menuItemsOnlyOneLevel = firstLevelMenu;
+            this.menuItemsOnlyTwoLevel = secondLevelMenu;
+            console.log('menuItemsOnlyOneLevel:' + JSON.stringify(this.menuItemsOnlyOneLevel));
+            console.log('menuItemsOnlyTwoLevel:' + JSON.stringify(this.menuItemsOnlyTwoLevel));
+          }).catch(error => {
+            console.error("获取数据时出错:", error);
+          });
+        },
+        convertMenuToOptions(menuData) {
+          let options = [];
+          menuData.forEach(item => {
+            if (item.subMenu) {
+              options = options.concat(convertMenuToOptions(item.subMenu));
+            } else {
+              options.push(item.name);
+            }
+          });
+          return options;
+        },
+        consoleName(value) {
+                    if (value != 'Data loading...') {
+                        window.location.href = `/products_pre.html?category=${encodeURIComponent(value)}`;
+                    }
+                },
+        submitForm() {
+          if (this.form.Name && this.form.Email && this.form.Message) {
+            // 写入数据到Firebase
+            const newContactRef = database.ref('Contact').push();
+            newContactRef.set({
+              Name: this.form.Name,
+              Email: this.form.Email,
+              Message: this.form.Message
+            })
+              .then(() => {
+                this.submissionMessage = 'Your message has been sent successfully!';
+                this.submissionError = '';
+                // 清空表单
+                this.form.Name = '';
+                this.form.Email = '';
+                this.form.Message = '';
+                alert('Details submitted successfully.');
+              })
+              .catch((error) => {
+                this.submissionError = 'Error submitting your message: ' + error.message;
+                this.submissionMessage = '';
+              });
+          } else {
+            this.submissionError = 'Please fill in all the fields.';
+            this.submissionMessage = '';
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

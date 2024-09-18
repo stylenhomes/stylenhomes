@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style &amp; Homes</title>
+    <!-- 引入 Vue 和 Element UI 样式 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入旧页面样式 -->
+    <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="images/webclip.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="css/TextPaperStyle.css">
+
+    <style>
+        /* 全屏动画容器样式 */
+        #animation-container {
+            position: fixed;
+            top: 40%;
+            left: 40%;
+            width: 20%;
+            height: 20%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* 页面内容容器样式 */
+        #content {
+            display: none;
+        }
+
+        /* 样式部分 */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .header .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .main {
+            margin-top: 70px;
+            /* 留出 header 的空间 */
+            padding: 20px;
+        }
+
+        .footer {
+            background-color: #f8f8f8;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20px;
+        }
+
+        .footer-left {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+
+        .footer-column {
+            margin-top: 10px;
+
+            width: 45%;
+        }
+
+        .footer-column h3 {
+            font-family: Josefin Sans, sans-serif;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column-p {
+            font-family: Josefin Sans, sans-serif;
+            color: rgb(165, 165, 165);
+            text-decoration: none;
+        }
+
+        .footer-column-p :hover {
+            color: #000;
+        }
+
+        .footer-right {
+            flex: 1;
+            width: 50%;
+            text-align: center;
+        }
+
+        .text-block-4 {
+            color: #223f61;
+            text-align: center;
+            margin-left: 0%;
+            padding-top: 5%;
+            padding-bottom: 1%;
+            font-family: Josefin Sans, sans-serif;
+            font-size: 3vw;
+            font-weight: 700;
+        }
+
+        .underline {
+            display: block;
+            width: 25%;
+            /* 让图片的宽度随容器变化 */
+            height: auto;
+            /* 保持图片的宽高比例 */
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 1%;
+            padding-bottom: 5%;
+            position: relative;
+            object-fit: contain;
+            /* 确保图片内容保持完整 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            /* 防止页面水平滚动条 */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid black; */
+            height: 60vh;
+            /* 确保父容器高度为整个视窗高度 */
+            width: 100vw;
+            /* 确保父容器宽度为整个视窗宽度 */
+            overflow: hidden;
+            /* 防止内容溢出 */
+        }
+
+        .container2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid black; */
+            height: 500px;
+            /* 确保父容器高度为整个视窗高度 */
+            width: 100%;
+            /* 确保父容器宽度为整个视窗宽度 */
+            overflow: hidden;
+            /* 防止内容溢出 */
+        }
+
+        .video-container {
+            width: 80%;
+            /* 调整视频容器宽度，使视频缩小 */
+            max-width: 960px;
+            /* 设置最大宽度 */
+
+            height: auto;
+            /* 让高度自适应宽度 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* 添加阴影 */
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .el-carousel__item h3 {
+            color: #475669;
+            font-size: 18px;
+            opacity: 0.75;
+            line-height: 300px;
+            margin: 0;
+        }
+
+        .el-carousel__item:nth-child(2n) {
+            background-color: #99a9bf;
+        }
+
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #d3dce6;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .product-box {
+            width: 23%;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            height: 1250px;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .image-container2 {
+            width: 100%;
+            height: 125px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container2:hover {
+            transform: scale(1.01);
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .image-container2 img {
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-container img {
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-container {
+            display: flex;
+            width: 80%;
+            height: 600px;
+
+            overflow: hidden;
+        }
+
+        .image-section {
+            width: 66.66%;
+            height: 100%;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text-section {
+            width: 33.33%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .text-section h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .text-section p {
+            font-family: 'Josefin Sans', serif;
+            margin-top: 10px;
+            font-size: 24px;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+            gap: 20px;
+            /* 控制各评论框之间的间距 */
+        }
+
+        .profile-box {
+            flex: 1 1 calc(33.333% - 40px);
+            /* 基础宽度为33.333%，同时考虑到间距 */
+            max-width: 500px;
+            /* 设置一个最大宽度 */
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(248, 248, 248);
+        }
+
+        .profile-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .profile-info {
+            text-align: center;
+        }
+
+        .profile-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .profile-job {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .profile-description {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #333;
+        }
+
+        /* 在较小屏幕上调整布局 */
+        @media (max-width: 1024px) {
+            .profile-box {
+                flex: 1 1 calc(50% - 40px);
+                /* 每行2个 */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profile-box {
+                flex: 1 1 100%;
+                /* 每行1个，宽度100% */
+            }
+        }
+
+        .tableDataBox {
+            width: 100%;
+            height: 300px;
+            border: 1px solid black;
+        }
+
+        /*轮播图*/
+        .el-carousel__item:nth-child(2n) {
+            background-color: #99a9bf;
+        }
+
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #d3dce6;
+        }
+
+        .el-carousel__item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* 隐藏溢出的部分 */
+            background-color: #d3dce6;
+            /* 根据需要调整背景色 */
+        }
+
+        .el-carousel__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* 图片会先等比例缩放至填充整个容器，然后裁剪溢出的部分 */
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            /* 纵向占屏幕的70% */
+        }
+
+        .carousel-title-small {
+            position: absolute;
+            top: 50%;
+            /* 根据需要调整标题的垂直位置 */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            /* 确保标题显示在轮播图前面 */
+            font-size: 2.4vw;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            /* 给标题添加阴影，以便在浅色背景上可见 */
+        }
+
+        .carousel-title {
+            position: absolute;
+            top: 40%;
+            /* 根据需要调整标题的垂直位置 */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            /* 确保标题显示在轮播图前面 */
+            font-size: 3.2vw;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            /* 给标题添加阴影，以便在浅色背景上可见 */
+        }
+        .ShopBtn{
+            margin-right: 30px;
+        }
+
+        /* 屏幕较小时调整为上下布局 */
+        @media (max-width: 1024px) {
+            .footer-top {
+                flex-direction: column;
+                /* 切换为上下布局 */
+            }
+
+            .footer-left,
+            .footer-right {
+                width: 100%;
+                /* 确保两边都占据100%宽度 */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 动画容器 -->
+    <div id="animation-container"></div>
+    <!-- 页面内容 -->
+    <div id="content">
+        <div id="app">
+            <!-- 固定在顶部的部分 -->
+            <div class="header">
+                <div class="content">
+                    <a href="index_pre.html">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fde6c2683ae3097f09359fead09bea9e.png?alt=media&token=6e1e7f82-6629-41ee-8c67-1d9910b051d0"
+                            alt="Company Logo" height="50">
+                    </a>
+                    <div>
+                        <el-button type="info" @click="drawer = true" style="margin-left: 16px;" round class="ShopBtn">
+                            <p>Shop by Category</p>
+                        </el-button>
+                    </div>
+                </div>
+            </div>
+
+            <el-drawer title="Directory Menu" :visible.sync="drawer" :direction="direction" :before-close="handleClose" size="300px">
+                <el-menu default-active="2" class="el-menu-vertical-demo">
+                    <el-menu-item v-for="item in menuItemsOnlyOneLevel" :key="item.value" :index="item.value">
+                        <i class="el-icon-setting"></i>
+                        <template slot="title">
+                            <span class="itemtitle" @click="consoleName(item.title)">{{ item.title }}</span>
+                        </template>
+                    </el-menu-item>
+                    <el-submenu v-for="(menuItem, index) in menuItemsOnlyTwoLevel" :key="index" :index="String(index)">
+                        <template slot="title">
+                            <i class="el-icon-location"></i>
+                            <span class="itemtitle" @click="consoleName(menuItem.title)">{{ menuItem.title }}</span>
+                        </template>
+                        <el-menu-item-group>
+                            <el-menu-item v-for="(option, idx) in menuItem.options" :key="idx">
+                                <span class="itemtitle" @click="consoleName(option)">{{ option }}</span>
+                            </el-menu-item>
+                        </el-menu-item-group>
+                    </el-submenu>
+                </el-menu>
+            </el-drawer>
+            
+            <!-- 内容部分 -->
+            <div class="main">
+                <!-- 轮播图 -->
+                <template>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-title Josefin-font">WE BUILD WHAT <span
+                                style="color: rgb(232, 139, 59);">YOU DREAM</span></div>
+                        <div class="carousel-title-small Josefin-font">at factory prices</div>
+                        <el-carousel height="70vh">
+                            <el-carousel-item v-for="item in bannerList" :key="item">
+                                <img :src="item.imageUrl" alt="Image" />
+                            </el-carousel-item>
+                        </el-carousel>
+                    </div>
+                </template>
+
+                <!-- 8个展示框 -->
+                <div>
+                    <div class="text-block-4">Project Categories</div>
+                    <img src="images/underline.svg" loading="lazy" alt="" class="underline">
+                </div>
+                <div class="product-container">
+                    <div class="product-box" v-for="itemtop in productListtop" :key="itemtop.id">
+                        <a :href="itemtop.linkUrl" target="_blank">
+                            <img :src="itemtop.imageUrl" alt="Product" class="product-image">
+                        </a>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <div class="product-box" v-for="itembottom in productListbottom" :key="itembottom.id">
+                        <a :href="itembottom.linkUrl" target="_blank">
+                            <img :src="itembottom.imageUrl" alt="Product" class="product-image">
+                        </a>
+                    </div>
+                </div>
+
+
+
+                <!-- 一个视频 -->
+                <div>
+                    <div class="text-block-4">Project Solutions</div><img src="images/underline.svg" loading="lazy"
+                        alt="" class="underline">
+                </div>
+                <div class="container2">
+                    <div class="video-container">
+                        <video autoplay loop muted playsinline data-object-fit="cover">
+                            <source
+                                src="https://uploads-ssl.webflow.com/64a9abacfb7bf4cdf78926df/65d3a192ce3fe21e2913da35_snh%20plan%20video%20new-transcode.mp4">
+                            <source
+                                src="https://uploads-ssl.webflow.com/64a9abacfb7bf4cdf78926df/65d3a192ce3fe21e2913da35_snh%20plan%20video%20new-transcode.webm">
+                        </video>
+                    </div>
+                </div>
+                <!-- 评论区 -->
+                <div>
+                    <div class="text-block-4">What Clients Say</div><img src="images/underline.svg" loading="lazy"
+                        alt="" class="underline">
+                </div>
+                <div class="profile-container">
+                    <div class="profile-box" v-for="profile in profileList" :key="profile.id">
+                        <div class="profile-top">
+                            <img :src="profile.avatarUrl" alt="Avatar" class="profile-avatar">
+                            <div class="profile-info">
+                                <div class="profile-name">{{ profile.name }}</div>
+                                <div class="profile-job">{{ profile.job }}</div>
+                            </div>
+                        </div>
+                        <div class="profile-description">{{ profile.description }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 页脚部分 -->
+            <div class="footer">
+                <!-- 上部分 -->
+                <div class="footer-top">
+                    <div class="footer-left">
+                        <div class="footer-column">
+                            <h3>Need Help</h3>
+                            <ul>
+                                <li><a href="contact-pre.html"><span class="footer-column-p">Contact</span></a></li>
+                                <li><a href="shipping-pre.html"><span class="footer-column-p">Shipping</span></a></li>
+                                <li><a href="faqs-pre.html"><span class="footer-column-p">FAQ'S</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h3>About</h3>
+                            <ul>
+                                <li><a href="project-solution-pre.html"><span class="footer-column-p">Project
+                                            Solution</span></a></li>
+                                <li><a href="about-pre.html"><span class="footer-column-p">About Us</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h3>Legal</h3>
+                            <ul>
+                                <li><a href="privacy-policy-pre.html"><span class="footer-column-p">Privacy
+                                            policy</span></a></li>
+                                <li><a href="payment-pre.html"><span class="footer-column-p">Payment</span></a></li>
+                                <li><a href="terms-conditions-pre.html"><span class="footer-column-p">Terms</span></a>
+                                </li>
+                                <li><a href="legal-policies-pre.html"><span class="footer-column-p">Legal
+                                            policies</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <div class="qrcode">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Fwebclip.png?alt=media&token=aceaaa76-7d9f-4012-bea3-c6fdf954e484"
+                                alt="QR Code" class="qrcode-image">
+                        </div>
+                        <div class="social-media">
+                            <div class="social-media-small">
+                                <a href="#"><img
+                                        src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-1.png?alt=media&token=2a1c1a1a-9f06-4102-8f3e-545cad9259b3"
+                                        alt="1"></a>
+                                <a href="#"><img
+                                        src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-2.png?alt=media&token=8f0bd000-0b71-4212-9d59-35fd24f0e2ba"
+                                        alt="2"></a>
+                                <a href="#"><img
+                                        src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-3.png?alt=media&token=583993fb-b01b-4c7b-9b34-c7cdea6d477e"
+                                        alt="3"></a>
+                                <a href="#"><img
+                                        src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-4.png?alt=media&token=89dec18b-530e-4357-a52c-99f22b645e53"
+                                        alt="4"></a>
+                                <a href="#"><img
+                                        src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-5.png?alt=media&token=e9b7bbd1-24d7-49c0-8295-ef38f43a546a"
+                                        alt="5"></a>
+                                <a href="#"><img
+                                        src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-6.png?alt=media&token=9fcf39c7-8e5d-4e4e-8423-e1ba3a3d3f3a"
+                                        alt="6"></a>
+                                <a href="#"><img
+                                        src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-7.png?alt=media&token=d1094273-8818-44ab-a6f4-318b2b126514"
+                                        alt="7"></a>
+                                <a href="#"><img
+                                        src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-8.png?alt=media&token=4039e84c-a66b-4187-b0cb-eaef19cd1616"
+                                        alt="8"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 下部分 -->
+                <div class="footer-bottom">
+                    <p>© 2024 Stylenhomes - All Rights Reserved.</p>
+                    <p>Made with ❤️ by Stylenhomes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 引入Lottie动画库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+    <!-- 引入 main.js -->
+    <script src="js/main.js"></script>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <!-- 引入 Element UI 的 JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <!-- Firebase App (核心Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <!-- Firebase数据库 -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+    <!-- Firebase Storage -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-storage.js"></script>
+
+    <script>
+        // 加载动画
+        var animationContainer = document.getElementById('animation-container');
+        var content = document.getElementById('content');
+        var animation = lottie.loadAnimation({
+            container: animationContainer,
+            renderer: 'svg',
+            loop: false,
+            autoplay: true,
+            path: 'js/Animation - 1722845777521.json' // 动画文件路径
+        });
+
+        // 设置动画播放速度
+        animation.setSpeed(1.2);
+
+        // 动画播放完成后显示页面内容
+        animation.addEventListener('complete', function () {
+            animationContainer.style.display = 'none';
+            content.style.display = 'block';
+        });
+        // Firebase配置对象
+        var firebaseConfig = {
+            apiKey: "AIzaSyDd_nZmq2hdU_5wKEXjK7xmB8TI4r2hrq0",
+            authDomain: "stylenhomes.firebaseapp.com",
+            projectId: "stylenhomes",
+            storageBucket: "stylenhomes.appspot.com",
+            messagingSenderId: "1234567890",
+            appId: "1:1234567890:web:abcdef123456",
+            measurementId: "G-ABCDEFGH"
+        };
+
+        // 初始化Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // 获取数据库引用
+        var database = firebase.database();
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    menuItemsOnlyOneLevel: [],
+                    menuItemsOnlyTwoLevel: [
+                        {
+                            title: 'Data loading...',
+                            options: []
+                        }
+                    ],
+                    drawer: false,
+                    direction: 'ltr',
+                    activeIndex: '1',
+                    bannerList: [
+                        {
+                            id: 1,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E4%B8%BB%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BE%2Ffrezja_9_9-1920x810.png?alt=media&token=3f0add67-de58-4f31-93a4-257e1d36ba4c',
+                            title: 'Banner 1',
+                            linkUrl: '#'
+                        },
+                        {
+                            id: 2,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E4%B8%BB%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BE%2Fslider_2-zlota-klamka-1920x810.png?alt=media&token=0d4efdde-65dc-461a-9ca9-52625f1e1f77',
+                            title: 'Banner 2',
+                            linkUrl: '#'
+                        },
+                        {
+                            id: 3,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E4%B8%BB%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BE%2Fwww__0001_prostokat-1-kopia-1920x810.jpg?alt=media&token=6295e36e-1057-48c5-9718-aa133b09a87a',
+                            title: 'Banner 3',
+                            linkUrl: '#'
+                        },
+                        {
+                            id: 4,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E4%B8%BB%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BE%2Fwww__0002_prostokat-1-kopia-2-1920x810.jpg?alt=media&token=535cb75e-58a3-4ca2-b0cb-78b6a39c3045',
+                            title: 'Banner 4',
+                            linkUrl: '#'
+                        },
+                    ],
+                    bannerList2: [
+                        {
+                            id: 1,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fdefault_name%20(4).jpg?alt=media&token=c57074c3-5f08-4f93-b645-c5804f1c2499',
+
+                            title: 'Family-friendly rugs',
+                            Introduction: 'Cozy styles, too cute to pass up.',
+                            linkUrl: '#'
+                        },
+                        {
+                            id: 2,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fdefault_name%20(5).jpg?alt=media&token=bded4453-beca-4dc0-b42b-de7e6e589a27',
+                            title: 'Laundry hampers',
+                            Introduction: 'Time to get your clothes off the floor.',
+
+                            linkUrl: '#'
+                        },
+                        {
+                            id: 3,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fdefault_name%20(6).jpg?alt=media&token=0e20ac14-c936-4cf6-804b-74966c638bcc',
+                            title: 'Table lamps',
+                            Introduction: 'From reading lights to lamps with a warm glow.',
+
+                            linkUrl: '#'
+                        },
+                        {
+                            id: 4,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fdefault_name%20(7).jpg?alt=media&token=dacb1526-9185-4e3e-8c69-4995f696b8a6',
+
+                            title: 'Office chairs',
+                            Introduction: 'Ergonomic options for all-day comfort.',
+                            linkUrl: '#'
+                        },
+
+                    ],
+                    bannerList3: [
+                        {
+                            id: 1,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fdefault_name%20(9).jpg?alt=media&token=9adb6aa2-b92d-4323-b130-491b2c2bd533',
+                            title: 'Air conditioners',
+                            Introduction: 'Find your cool with window units and more.',
+                            linkUrl: '#'
+                        },
+                        {
+                            id: 2,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fdefault_name%20(10).jpg?alt=media&token=aa154695-5d37-4c00-a66a-677907752bb2',
+                            title: 'Mini fridges',
+                            Introduction: 'Keep snacks and drinks handy.',
+                            linkUrl: '#'
+                        },
+                        {
+                            id: 3,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fdefault_name%20(8).jpg?alt=media&token=6ec94042-8b88-4b16-a199-918fd9026702',
+                            title: 'Air fryers',
+                            Introduction: 'Late-night meals made quick and easy.',
+                            linkUrl: '#'
+                        },
+                        {
+                            id: 4,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fdefault_name%20(11).jpg?alt=media&token=8b5c5470-55b1-4ccd-97e7-eaec4aee1516',
+                            title: 'Humidifiers',
+                            Introduction: 'Breathe easy with the ideal atmosphere.',
+                            linkUrl: '#'
+                        },
+                    ],
+                    productListtop: [
+                        {
+                            id: 1,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Findex_image%2FBathroomVanities.png?alt=media&token=2d225bf9-c538-4261-92d6-1049bcbc45e0',
+                            linkUrl: 'https://stylenhomes.com/products_pre.html?category=Bathroom%20Vanities'
+                        },
+                        {
+                            id: 2,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Findex_image%2FBathtubs.png?alt=media&token=ab5fbeb8-82ba-464a-b3ed-d0bb606b9b2e',
+                            linkUrl: 'https://stylenhomes.com/products_pre.html?category=Bathtubs'
+                        },
+                        {
+                            id: 3,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Findex_image%2FDeckTiles.png?alt=media&token=14633c87-a666-44f9-8b9b-73d120819734',
+                            linkUrl: 'https://stylenhomes.com/products_pre.html?category=Deck%20Tiles'
+                        },
+                        {
+                            id: 4,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Findex_image%2FDoor.jpeg?alt=media&token=5276e69e-55cf-42b9-8562-468e4fb5f658',
+                            linkUrl: 'https://stylenhomes.com/products_pre.html?category=Doors'
+                        },
+
+                    ],
+                    productListbottom: [
+                        {
+                            id: 1,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Findex_image%2FFlooring%20.jpeg?alt=media&token=b0dab8f7-1240-40a6-a515-427e921baa44',
+                            linkUrl: 'https://stylenhomes.com/products_pre.html?category=Flooring'
+                        },
+                        {
+                            id: 2,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Findex_image%2FPainting.jpg?alt=media&token=332025c9-8f8b-4976-b1c5-d73b96be52e4',
+                            linkUrl: 'https://stylenhomes.com/products_pre.html?category=Painting'
+                        },
+                        {
+                            id: 3,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Findex_image%2FRugs.png?alt=media&token=6e7c44c3-147e-41ae-b403-e12243d2cf6a',
+                            linkUrl: 'https://stylenhomes.com/products_pre.html?category=Rugs'
+                        },
+                        {
+                            id: 4,
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Findex_image%2FWallPanels.jpg?alt=media&token=65c13c00-fcd2-4fd7-abd2-e19cb7d7d17c',
+                            linkUrl: 'https://stylenhomes.com/products_pre.html?category=Wall%20Panels'
+                        },
+                    ],
+                    profileList: [
+                        {
+                            id: 1,
+                            avatarUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
+                            name: 'John Doe',
+                            job: 'Doctor - Verified Buyer 22/01/23',
+                            description: 'Style & Homes exceeded my expectations with their outstanding service and top-quality building materials. From the initial consultation to the final installation, their team displayed exceptional professionalism and expertise. They listened attentively to my vision for the project and offered valuable suggestions. I am incredibly satisfied with the outcome and would confidently recommend Style & Homes to anyone seeking a reliable partner for their renovation needs.'
+                        },
+                        {
+                            id: 2,
+                            avatarUrl: 'https://randomuser.me/api/portraits/women/6.jpg',
+                            name: 'Jane Smith',
+                            job: 'Architect - Verified Buyer 18/04/23',
+                            description: 'I recently worked with Style & Homes for my home renovation project, and I couldnt be happier with the results. The team was professional, knowledgeable, and provided excellent customer service throughout the process. They were able to tailor their products to fit my specific needs and preferences, and the quality of their building materials was top-notch. I highly recommend Style & Homes for anyone looking for high-quality building materials and exceptional customer service.'
+                        },
+                        {
+                            id: 3,
+                            avatarUrl: 'https://randomuser.me/api/portraits/men/4.jpg',
+                            name: 'Sam Wilson',
+                            job: 'Entrepreneur - Verified Buyer 12/02/23',
+                            description: 'Choosing Style & Homes for my home renovation was a fantastic decision. The entire experience was exceptional. The teams dedication and hard work were evident in every aspect of the project. They provided invaluable guidance in selecting the perfect building materials that not only matched my style but also exceeded my expectations in terms of quality. I cannot thank Style & Homes enough for their professionalism, attention to detail, and commitment to customer satisfaction.'
+                        },
+                        {
+                            id: 4,
+                            avatarUrl: 'https://randomuser.me/api/portraits/men/3.jpg',
+                            name: 'John Baker',
+                            job: 'Software Engineer - Verified Buyer 18/02/21',
+                            description: 'Working with Style & Homes was a seamless experience from start to finish. Their teams expertise in material selection and project management was exceptional. The quality of their work exceeded my expectations, and my home now looks absolutely stunning. I am incredibly satisfied with the results and would highly recommend Style & Homes to anyone looking to elevate their space.'
+                        },
+                        {
+                            id: 5,
+                            avatarUrl: 'https://randomuser.me/api/portraits/women/2.jpg',
+                            name: 'Sanjiv Malhotra',
+                            job: 'Product Manager - Verified Buyer 16/06/14',
+                            description: 'I was thoroughly impressed with Style & Homes commitment to customer satisfaction. Their team went above and beyond to ensure my home renovation project was completed on time and within budget. The attention to detail and craftsmanship were evident in every aspect of the project. I am thrilled with the final result and would not hesitate to recommend Style & Homes to friends and family.'
+                        },
+                        {
+                            id: 6,
+                            avatarUrl: 'https://randomuser.me/api/portraits/women/7.jpg',
+                            name: 'Camille Rioux',
+                            job: 'UX Designer - Verified Buyer 20/09/04',
+                            description: 'Style & Homes exceeded my expectations in every way. Their team was professional, efficient, and brought my home design dreams to life. From design to construction, every detail was flawless. Im absolutely thrilled with the final result and highly recommend them.'
+                        }
+                    ],
+
+
+
+                };
+            },
+            created() {
+                this.fetchMenuData();
+            },
+            methods: {
+                fetchMenuData() {
+                    var storeRef = firebase.database().ref('Directory');
+                    storeRef.once('value').then(snapshot => {
+                        var data = snapshot.val(), firstLevelMenu = [], secondLevelMenu = [];
+
+                        // console.log('data:' + JSON.stringify(data));
+                        for (var key in data) {
+                            if (data[key].isdelete === 'false' && data[key].classification === 1 && data[key].subordinate === 'false') {
+                                var firstLevelItem = {
+                                    title: key
+                                };
+                                firstLevelMenu.push(firstLevelItem);
+                            } else if (data[key].isdelete === 'false' && data[key].classification === 1 && data[key].subordinate === 'true') {
+                                var secondLevelItem = {
+                                    title: key,
+                                    subordinate: data[key].subordinate,
+                                    options: []
+                                };
+
+                                for (var subKey in data) {
+                                    if (data[subKey].isdelete === 'false' && data[subKey].classification === 2 && data[subKey].Superior === key) {
+                                        secondLevelItem.options.push({ name: subKey });
+                                    }
+                                }
+                                secondLevelItem.options = this.convertMenuToOptions(secondLevelItem.options);
+                                secondLevelMenu.push(secondLevelItem);
+                            }
+                        }
+                        this.menuItemsOnlyOneLevel = firstLevelMenu;
+                        this.menuItemsOnlyTwoLevel = secondLevelMenu;
+                        console.log('menuItemsOnlyOneLevel:' + JSON.stringify(this.menuItemsOnlyOneLevel));
+                        console.log('menuItemsOnlyTwoLevel:' + JSON.stringify(this.menuItemsOnlyTwoLevel));
+                    }).catch(error => {
+                        console.error("获取数据时出错:", error);
+                    });
+                },
+                convertMenuToOptions(menuData) {
+                    let options = [];
+                    menuData.forEach(item => {
+                        if (item.subMenu) {
+                            options = options.concat(convertMenuToOptions(item.subMenu));
+                        } else {
+                            options.push(item.name);
+                        }
+                    });
+                    return options;
+                },
+                showSubMenu(name) {
+                    console.log(name);
+                    this.firstLevelMenu.forEach(item => {
+                        if (item.name === name) {
+
+                            item.subMenuVisible = true;
+                        }
+                    });
+                },
+                hideSubMenu() {
+                    this.firstLevelMenu.forEach(item => {
+                        item.subMenuVisible = false;
+                    });
+                },
+                consoleName(value) {
+                    if (value != 'Data loading...') {
+                        window.location.href = `/products_pre.html?category=${encodeURIComponent(value)}`;
+                    }
+                },
+                gotoIndex() {
+                    window.location.href = `/index_pre.html`;
+                },
+                mounted() {
+                    setTimeout(() => {
+                        this.isLoading = false;
+                        document.body.style.display = "block";
+                    }, 3000);
+
+                    // 模拟数据获取
+                    this.menuItemsOnlyOneLevel = [
+                        { title: 'Home', value: '1' },
+                        { title: 'Products', value: '2' },
+                        { title: 'Services', value: '3' },
+                        { title: 'About', value: '4' }
+                    ];
+                    this.menuItemsOnlyTwoLevel = [
+                        { title: 'Categories', options: ['Cat 1', 'Cat 2', 'Cat 3'] }
+                    ];
+                    this.productList = [
+                        { image: 'https://example.com/path/to/image1.jpg', ID: '123', name: 'Product 1' },
+                        { image: 'https://example.com/path/to/image2.jpg', ID: '456', name: 'Product 2' },
+                        { image: 'https://example.com/path/to/image3.jpg', ID: '789', name: 'Product 3' }
+                    ];
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>

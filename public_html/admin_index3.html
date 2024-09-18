@@ -756,6 +756,8 @@
             console.error("上架数据时出错:", error);
           });
         },
+        //base64存储图像
+        /*
         uploadFile(event, refName) {
           const file = event.target.files[0];
           const reader = new FileReader();
@@ -773,7 +775,46 @@
             });
           };
           reader.readAsDataURL(file);
+        },*/
+
+        //https存储图像
+        uploadFile(event, refName) {
+          const file = event.target.files[0];
+          const reader = new FileReader();
+
+          // 生成唯一文件名，例如使用当前时间戳和文件名组合
+          const uniqueFileName = `${Date.now()}_${file.name}`;
+
+          reader.onload = (e) => {
+            const base64Image = e.target.result;
+            const index = refName.replace('Images', '').replace('FileInput', '');
+
+            // 先展示本地预览 (Base64)
+            this.$set(this.form.Images, index, base64Image);
+
+            // 上传文件到 Firebase Storage
+            const storageRef = firebase.storage().ref(`images/${uniqueFileName}`);
+            storageRef.putString(base64Image, 'data_url')
+              .then(snapshot => {
+                // 获取上传后的 HTTPS URL
+                console.log(snapshot.ref.getDownloadURL());
+                return snapshot.ref.getDownloadURL();
+              })
+              .then(downloadURL => {
+                // 将 HTTPS URL 更新到表单中的 Images 数组
+                this.$nextTick(() => {
+                  this.$set(this.form.Images, index, downloadURL);
+                });
+              })
+              .catch(error => {
+                console.error("图片上传失败:", error);
+              });
+          };
+
+          reader.readAsDataURL(file);
         },
+
+
         triggerFileInput(refName) {
           this.$refs[refName].click();
         },

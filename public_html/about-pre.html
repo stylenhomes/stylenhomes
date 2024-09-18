@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms &amp; Conditions</title>
+  <!-- 引入 Vue 和 Element UI 样式 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="css/TextPaperStyle.css">
+  <style>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .shippingtext {
+      width: 60%;
+      height: auto;
+      color: rgb(34, 63, 97);
+    }
+
+    .shippingbox {
+      width: 100%;
+    }
+
+    .shippingtext img {
+      width: 100%;
+      height: auto;
+    }
+
+    .shippingtext h3 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: 400;
+    }
+
+    .shippingtext p {
+      font-size: 20px;
+      font-weight: 200;
+      margin-bottom: 60px;
+    }
+
+    .master-legal {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 动画容器 -->
+  <div id="animation-container"></div>
+  <!-- 页面内容 -->
+  <div id="content">
+    <div id="app">
+      <!-- 固定在顶部的部分 -->
+      <div class="header">
+        <div class="content">
+            <a href="index_pre.html">
+                <img src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/Images0%2Fde6c2683ae3097f09359fead09bea9e.png?alt=media&token=6e1e7f82-6629-41ee-8c67-1d9910b051d0"
+                    alt="Company Logo" height="50">
+            </a>
+            <div>
+                <el-button type="info" @click="drawer = true" style="margin-left: 16px;" round class="ShopBtn">
+                    <p>Shop by Category</p>
+                </el-button>
+            </div>
+        </div>
+    </div>
+
+    <el-drawer title="Directory Menu" :visible.sync="drawer" :direction="direction" :before-close="handleClose" size="300px">
+        <el-menu default-active="2" class="el-menu-vertical-demo">
+            <el-menu-item v-for="item in menuItemsOnlyOneLevel" :key="item.value" :index="item.value">
+                <i class="el-icon-setting"></i>
+                <template slot="title">
+                    <span class="itemtitle" @click="consoleName(item.title)">{{ item.title }}</span>
+                </template>
+            </el-menu-item>
+            <el-submenu v-for="(menuItem, index) in menuItemsOnlyTwoLevel" :key="index" :index="String(index)">
+                <template slot="title">
+                    <i class="el-icon-location"></i>
+                    <span class="itemtitle" @click="consoleName(menuItem.title)">{{ menuItem.title }}</span>
+                </template>
+                <el-menu-item-group>
+                    <el-menu-item v-for="(option, idx) in menuItem.options" :key="idx">
+                        <span class="itemtitle" @click="consoleName(option)">{{ option }}</span>
+                    </el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
+        </el-menu>
+    </el-drawer>
+
+      <!-- 内容部分 -->
+      <div class="main snh-background-color Josefin-font">
+        <div class="master-legal">
+          <div class="shippingtext">
+            <div class="shippingbox">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Fabout%20us%20img%2FAbout%20Us.png?alt=media&token=6923dd63-7bb5-434b-ba0b-64cb8b0214eb"
+                alt="Image Loading...">
+            </div>
+            <h3>Values And Mission</h3>
+            <p>
+              At our company, we understand that building your dream home can be a daunting task. That's why we're
+              here to help you every step of the way. Our team of experts is dedicated to providing you with the
+              best
+              building materials and home fixtures at an affordable price, so you can create the home you've always
+              wanted without breaking the bank.
+            </p>
+            <!-- <div class="shippingbox">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Fabout%20us%20img%2FWe%20are%20united%20in%20values%20and%20mission.png?alt=media&token=45d11fdf-58e4-4d07-b559-dd9916abad3d"
+                alt="Image Loading...">
+            </div> -->
+            <div class="shippingbox">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Fabout%20us%20img%2FStyle%20%26%20Homes%20is%20where%20hard%20work%20meets.png?alt=media&token=e54f7b3c-9d2f-4517-b032-4e593b545572"
+                alt="Image Loading...">
+            </div>
+            <div class="shippingbox">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2Fabout%20us%20img%2FBoost%20your%20career%20with%20Style%20%26%20Homes%20today.png?alt=media&token=13bc7024-dfc3-475f-9c20-3d6f8d25ad87"
+                alt="Image Loading...">
+            </div>
+            <a href="contact-pre.html">
+              <el-button type="warning" round>Contact Us</el-button>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 页脚部分 -->
+      <div class="footer">
+        <!-- 上部分 -->
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-column">
+                    <h3>Need Help</h3>
+                    <ul>
+                        <li><a href="contact-pre.html"><span class="footer-column-p">Contact</span></a></li>
+                        <li><a href="shipping-pre.html"><span class="footer-column-p">Shipping</span></a></li>
+                        <li><a href="faqs-pre.html"><span class="footer-column-p">FAQ'S</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="project-solution-pre.html"><span class="footer-column-p">Project
+                                    Solution</span></a></li>
+                        <li><a href="about-pre.html"><span class="footer-column-p">About Us</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy-policy-pre.html"><span class="footer-column-p">Privacy
+                                    policy</span></a></li>
+                        <li><a href="payment-pre.html"><span class="footer-column-p">Payment</span></a></li>
+                        <li><a href="terms-conditions-pre.html"><span class="footer-column-p">Terms</span></a>
+                        </li>
+                        <li><a href="legal-policies-pre.html"><span class="footer-column-p">Legal
+                                    policies</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="qrcode">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Fwebclip.png?alt=media&token=aceaaa76-7d9f-4012-bea3-c6fdf954e484"
+                        alt="QR Code" class="qrcode-image">
+                </div>
+                <div class="social-media">
+                    <div class="social-media-small">
+                        <a href="#"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-1.png?alt=media&token=2a1c1a1a-9f06-4102-8f3e-545cad9259b3"
+                                alt="1"></a>
+                        <a href="#"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-2.png?alt=media&token=8f0bd000-0b71-4212-9d59-35fd24f0e2ba"
+                                alt="2"></a>
+                        <a href="#"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-3.png?alt=media&token=583993fb-b01b-4c7b-9b34-c7cdea6d477e"
+                                alt="3"></a>
+                        <a href="#"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-4.png?alt=media&token=89dec18b-530e-4357-a52c-99f22b645e53"
+                                alt="4"></a>
+                        <a href="#"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-5.png?alt=media&token=e9b7bbd1-24d7-49c0-8295-ef38f43a546a"
+                                alt="5"></a>
+                        <a href="#"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-6.png?alt=media&token=9fcf39c7-8e5d-4e4e-8423-e1ba3a3d3f3a"
+                                alt="6"></a>
+                        <a href="#"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-7.png?alt=media&token=d1094273-8818-44ab-a6f4-318b2b126514"
+                                alt="7"></a>
+                        <a href="#"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/stylenhomes.appspot.com/o/1%2F%E5%9B%BE%E6%A0%87%2Ffooter-icon-8.png?alt=media&token=4039e84c-a66b-4187-b0cb-eaef19cd1616"
+                                alt="8"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 下部分 -->
+        <div class="footer-bottom">
+            <p>© 2024 Stylenhomes - All Rights Reserved.</p>
+            <p>Made with ❤️ by Stylenhomes.</p>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- 引入Lottie动画库 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+  <!-- 引入 main.js -->
+  <script src="js/main.js"></script>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- 引入 Element UI 的 JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- Firebase App (核心Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <!-- Firebase数据库 -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+  <!-- Firebase Storage -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-storage.js"></script>
+
+  <script>
+    // 加载动画
+    var animationContainer = document.getElementById('animation-container');
+    var content = document.getElementById('content');
+    var animation = lottie.loadAnimation({
+      container: animationContainer,
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      path: 'js/Animation - 1722845777521.json' // 动画文件路径
+    });
+
+    // 设置动画播放速度
+    animation.setSpeed(1.2);
+
+    // 动画播放完成后显示页面内容
+    animation.addEventListener('complete', function () {
+      animationContainer.style.display = 'none';
+      content.style.display = 'block';
+    });
+    // Firebase配置对象
+    var firebaseConfig = {
+      apiKey: "AIzaSyDd_nZmq2hdU_5wKEXjK7xmB8TI4r2hrq0",
+      authDomain: "stylenhomes.firebaseapp.com",
+      projectId: "stylenhomes",
+      storageBucket: "stylenhomes.appspot.com",
+      messagingSenderId: "1234567890",
+      appId: "1:1234567890:web:abcdef123456",
+      measurementId: "G-ABCDEFGH"
+    };
+
+    // 初始化Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // 获取数据库引用
+    var database = firebase.database();
+
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          menuItemsOnlyOneLevel: [],
+          menuItemsOnlyTwoLevel: [
+            {
+              title: 'Data loading...',
+              options: []
+            }
+          ],
+          drawer: false,
+          direction: 'ltr',
+          form: {
+            Name: '',
+            Email: '',
+            Message: ''
+          },
+          submissionMessage: '',
+          submissionError: ''
+        }
+      },
+      created() {
+        this.fetchMenuData();
+      },
+      methods: {
+        consoleName(value) {
+                    if (value != 'Data loading...') {
+                        window.location.href = `/products_pre.html?category=${encodeURIComponent(value)}`;
+                    }
+                },
+        fetchMenuData() {
+          var storeRef = firebase.database().ref('Directory');
+          storeRef.once('value').then(snapshot => {
+            var data = snapshot.val(), firstLevelMenu = [], secondLevelMenu = [];
+
+            // console.log('data:' + JSON.stringify(data));
+            for (var key in data) {
+              if (data[key].isdelete === 'false' && data[key].classification === 1 && data[key].subordinate === 'false') {
+                var firstLevelItem = {
+                  title: key
+                };
+                firstLevelMenu.push(firstLevelItem);
+              } else if (data[key].isdelete === 'false' && data[key].classification === 1 && data[key].subordinate === 'true') {
+                var secondLevelItem = {
+                  title: key,
+                  subordinate: data[key].subordinate,
+                  options: []
+                };
+
+                for (var subKey in data) {
+                  if (data[subKey].isdelete === 'false' && data[subKey].classification === 2 && data[subKey].Superior === key) {
+                    secondLevelItem.options.push({ name: subKey });
+                  }
+                }
+                secondLevelItem.options = this.convertMenuToOptions(secondLevelItem.options);
+                secondLevelMenu.push(secondLevelItem);
+              }
+            }
+            this.menuItemsOnlyOneLevel = firstLevelMenu;
+            this.menuItemsOnlyTwoLevel = secondLevelMenu;
+            console.log('menuItemsOnlyOneLevel:' + JSON.stringify(this.menuItemsOnlyOneLevel));
+            console.log('menuItemsOnlyTwoLevel:' + JSON.stringify(this.menuItemsOnlyTwoLevel));
+          }).catch(error => {
+            console.error("获取数据时出错:", error);
+          });
+        },
+        convertMenuToOptions(menuData) {
+                    let options = [];
+                    menuData.forEach(item => {
+                        if (item.subMenu) {
+                            options = options.concat(convertMenuToOptions(item.subMenu));
+                        } else {
+                            options.push(item.name);
+                        }
+                    });
+                    return options;
+                },
+        submitForm() {
+          if (this.form.Name && this.form.Email && this.form.Message) {
+            // 写入数据到Firebase
+            const newContactRef = database.ref('Contact').push();
+            newContactRef.set({
+              Name: this.form.Name,
+              Email: this.form.Email,
+              Message: this.form.Message
+            })
+              .then(() => {
+                this.submissionMessage = 'Your message has been sent successfully!';
+                this.submissionError = '';
+                // 清空表单
+                this.form.Name = '';
+                this.form.Email = '';
+                this.form.Message = '';
+                alert('Details submitted successfully.');
+              })
+              .catch((error) => {
+                this.submissionError = 'Error submitting your message: ' + error.message;
+                this.submissionMessage = '';
+              });
+          } else {
+            this.submissionError = 'Please fill in all the fields.';
+            this.submissionMessage = '';
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

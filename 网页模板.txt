@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Vue Page</title>
+  <!-- 引入 Vue 和 Element UI 样式 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <style>
+    /* 样式部分 */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #f8f8f8;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    .header .content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .main {
+      margin-top: 70px; /* 留出 header 的空间 */
+      padding: 20px;
+    }
+    .footer {
+      background-color: #f8f8f8;
+      padding: 20px 0;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 固定在顶部的部分 -->
+    <div class="header">
+      <div class="content">
+        <img src="company-logo.png" alt="Company Logo" height="50">
+        <el-input placeholder="Search" style="width: 400px;"></el-input>
+        <div>
+          <el-button type="primary">Login</el-button>
+          <el-button>Register</el-button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 商品内容部分 -->
+    <div class="main">
+      <h1>Product List</h1>
+      <p>This is the main content area where the products will be displayed.</p>
+      <!-- 这里可以添加更多的商品内容 -->
+    </div>
+
+    <!-- 页脚部分 -->
+    <div class="footer">
+      <p>About Us | Contact | Privacy Policy</p>
+      <p>&copy; 2024 Company Name. All rights reserved.</p>
+    </div>
+  </div>
+
+  <!-- 引入 Element UI 的 JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {},
+      methods: {}
+    });
+  </script>
+</body>
+</html>
